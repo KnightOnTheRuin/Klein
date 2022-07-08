@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class KleinApplication {
 
 	public static void main(String[] args) {
+		int a;
 		SpringApplication.run(KleinApplication.class, args);
 	}
 

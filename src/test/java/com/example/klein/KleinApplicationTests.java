@@ -8,6 +8,7 @@ class KleinApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("hello,world");
 	}
 
 }

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.klein.dao.AdministrationDao">
+
+    <resultMap id="BaseResultMap" type="com.example.klein.entity.Administration">
+        <!--@Table administration-->
+        <result property="administrationid" column="administrationId" jdbcType="INTEGER"/>
+        <result property="administratorid" column="administratorId" jdbcType="INTEGER"/>
+        <result property="hotelid" column="hotelId" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          administrationId, administratorId, hotelId
+        from administration
+        where administrationId = #{administrationid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          administrationId, administratorId, hotelId
+        from administration
+        <where>
+            <if test="administrationid != null">
+                and administrationId = #{administrationid}
+            </if>
+            <if test="administratorid != null">
+                and administratorId = #{administratorid}
+            </if>
+            <if test="hotelid != null">
+                and hotelId = #{hotelid}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          administrationId, administratorId, hotelId
+        from klein.administration
+    </select>
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from administration
+        <where>
+            <if test="administrationid != null">
+                and administrationId = #{administrationid}
+            </if>
+            <if test="administratorid != null">
+                and administratorId = #{administratorid}
+            </if>
+            <if test="hotelid != null">
+                and hotelId = #{hotelid}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="administrationid" useGeneratedKeys="true">
+        insert into administration(administratorId, hotelId)
+        values (#{administratorid}, #{hotelid})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="administrationid" useGeneratedKeys="true">
+        insert into administration(administratorId, hotelId)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.administratorid}, #{entity.hotelid})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="administrationid" useGeneratedKeys="true">
+        insert into administration(administratorId, hotelId)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.administratorid}, #{entity.hotelid})
+        </foreach>
+        on duplicate key update
+        administratorId = values(administratorId),
+        hotelId = values(hotelId)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update administration
+        <set>
+            <if test="administratorid != null">
+                administratorId = #{administratorid},
+            </if>
+            <if test="hotelid != null">
+                hotelId = #{hotelid},
+            </if>
+        </set>
+        where administrationId = #{administrationid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from administration where administrationId = #{administrationid}
+    </delete>
+
+</mapper>
+

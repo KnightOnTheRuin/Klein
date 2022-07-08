@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.klein.dao.ShowteamDao">
+
+    <resultMap id="BaseResultMap" type="com.example.klein.entity.Showteam">
+        <!--@Table showteam-->
+        <result property="showteamid" column="showTeamId" jdbcType="INTEGER"/>
+        <result property="showteamtype" column="showTeamType" jdbcType="VARCHAR"/>
+        <result property="showteamname" column="showTeamName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          showTeamId, showTeamType, showTeamName
+        from showteam
+        where showTeamId = #{showteamid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          showTeamId, showTeamType, showTeamName
+        from showteam
+        <where>
+            <if test="showteamid != null">
+                and showTeamId = #{showteamid}
+            </if>
+            <if test="showteamtype != null and showteamtype != ''">
+                and showTeamType = #{showteamtype}
+            </if>
+            <if test="showteamname != null and showteamname != ''">
+                and showTeamName = #{showteamname}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          showTeamId, showTeamType, showTeamName
+        from klein.showteam
+    </select>
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from showteam
+        <where>
+            <if test="showteamid != null">
+                and showTeamId = #{showteamid}
+            </if>
+            <if test="showteamtype != null and showteamtype != ''">
+                and showTeamType = #{showteamtype}
+            </if>
+            <if test="showteamname != null and showteamname != ''">
+                and showTeamName = #{showteamname}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="showteamid" useGeneratedKeys="true">
+        insert into showteam(showTeamType, showTeamName)
+        values (#{showteamtype}, #{showteamname})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="showteamid" useGeneratedKeys="true">
+        insert into showteam(showTeamType, showTeamName)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.showteamtype}, #{entity.showteamname})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="showteamid" useGeneratedKeys="true">
+        insert into showteam(showTeamType, showTeamName)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.showteamtype}, #{entity.showteamname})
+        </foreach>
+        on duplicate key update
+        showTeamType = values(showTeamType),
+        showTeamName = values(showTeamName)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update showteam
+        <set>
+            <if test="showteamtype != null and showteamtype != ''">
+                showTeamType = #{showteamtype},
+            </if>
+            <if test="showteamname != null and showteamname != ''">
+                showTeamName = #{showteamname},
+            </if>
+        </set>
+        where showTeamId = #{showteamid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from showteam where showTeamId = #{showteamid}
+    </delete>
+
+</mapper>
+

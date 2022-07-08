@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.klein.dao.EntertainmentbelongsDao">
+
+    <resultMap id="BaseResultMap" type="com.example.klein.entity.Entertainmentbelongs">
+        <!--@Table entertainmentbelongs-->
+        <result property="belongsid" column="belongsId" jdbcType="INTEGER"/>
+        <result property="scenicareaid" column="scenicAreaId" jdbcType="INTEGER"/>
+        <result property="entertainmentid" column="entertainmentId" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          belongsId, scenicAreaId, entertainmentId
+        from entertainmentbelongs
+        where belongsId = #{belongsid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          belongsId, scenicAreaId, entertainmentId
+        from entertainmentbelongs
+        <where>
+            <if test="belongsid != null">
+                and belongsId = #{belongsid}
+            </if>
+            <if test="scenicareaid != null">
+                and scenicAreaId = #{scenicareaid}
+            </if>
+            <if test="entertainmentid != null">
+                and entertainmentId = #{entertainmentid}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          belongsId, scenicAreaId, entertainmentId
+        from klein.entertainmentbelongs
+    </select>
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from entertainmentbelongs
+        <where>
+            <if test="belongsid != null">
+                and belongsId = #{belongsid}
+            </if>
+            <if test="scenicareaid != null">
+                and scenicAreaId = #{scenicareaid}
+            </if>
+            <if test="entertainmentid != null">
+                and entertainmentId = #{entertainmentid}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="belongsid" useGeneratedKeys="true">
+        insert into entertainmentbelongs(scenicAreaId, entertainmentId)
+        values (#{scenicareaid}, #{entertainmentid})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="belongsid" useGeneratedKeys="true">
+        insert into entertainmentbelongs(scenicAreaId, entertainmentId)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.scenicareaid}, #{entity.entertainmentid})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="belongsid" useGeneratedKeys="true">
+        insert into entertainmentbelongs(scenicAreaId, entertainmentId)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.scenicareaid}, #{entity.entertainmentid})
+        </foreach>
+        on duplicate key update
+        scenicAreaId = values(scenicAreaId),
+        entertainmentId = values(entertainmentId)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update entertainmentbelongs
+        <set>
+            <if test="scenicareaid != null">
+                scenicAreaId = #{scenicareaid},
+            </if>
+            <if test="entertainmentid != null">
+                entertainmentId = #{entertainmentid},
+            </if>
+        </set>
+        where belongsId = #{belongsid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from entertainmentbelongs where belongsId = #{belongsid}
+    </delete>
+
+</mapper>
+

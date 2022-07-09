@@ -65,7 +65,7 @@ public class PerformanceServiceImpl implements PerformanceService {
     @Override
     public Performance update(Performance performance) {
         this.performanceDao.update(performance);
-        return this.queryById(performance.getPerformanceid());
+        return this.queryById(performance.getPerformanceId());
     }
 
     /**

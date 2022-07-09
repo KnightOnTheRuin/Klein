@@ -4,9 +4,9 @@
 
     <resultMap id="BaseResultMap" type="com.example.klein.entity.Administration">
         <!--@Table administration-->
-        <result property="administrationid" column="administrationId" jdbcType="INTEGER"/>
-        <result property="administratorid" column="administratorId" jdbcType="INTEGER"/>
-        <result property="hotelid" column="hotelId" jdbcType="INTEGER"/>
+        <result property="administrationId" column="administrationId" jdbcType="INTEGER"/>
+        <result property="administratorId" column="administratorId" jdbcType="INTEGER"/>
+        <result property="hotelId" column="hotelId" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->

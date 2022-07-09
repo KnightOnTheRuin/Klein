@@ -11,35 +11,35 @@ import java.io.Serializable;
 public class Showteam implements Serializable {
     private static final long serialVersionUID = -80081372641734924L;
     
-    private Long showteamid;
+    private Long showTeamId;
     
-    private String showteamtype;
+    private String showTeamType;
     
-    private String showteamname;
+    private String showTeamName;
 
 
-    public Long getShowteamid() {
-        return showteamid;
+    public Long getShowTeamId() {
+        return showTeamId;
     }
 
-    public void setShowteamid(Long showteamid) {
-        this.showteamid = showteamid;
+    public void setShowTeamId(Long showTeamId) {
+        this.showTeamId = showTeamId;
     }
 
-    public String getShowteamtype() {
-        return showteamtype;
+    public String getShowTeamType() {
+        return showTeamType;
     }
 
-    public void setShowteamtype(String showteamtype) {
-        this.showteamtype = showteamtype;
+    public void setShowTeamType(String showTeamType) {
+        this.showTeamType = showTeamType;
     }
 
-    public String getShowteamname() {
-        return showteamname;
+    public String getShowTeamName() {
+        return showTeamName;
     }
 
-    public void setShowteamname(String showteamname) {
-        this.showteamname = showteamname;
+    public void setShowTeamName(String showTeamName) {
+        this.showTeamName = showTeamName;
     }
 
 }

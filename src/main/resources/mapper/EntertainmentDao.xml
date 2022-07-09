@@ -4,10 +4,10 @@
 
     <resultMap id="BaseResultMap" type="com.example.klein.entity.Entertainment">
         <!--@Table entertainment-->
-        <result property="entertainmentid" column="entertainmentId" jdbcType="INTEGER"/>
-        <result property="entertainmentname" column="entertainmentName" jdbcType="VARCHAR"/>
-        <result property="entertainmenttype" column="entertainmentType" jdbcType="VARCHAR"/>
-        <result property="phonenumber" column="phoneNumber" jdbcType="VARCHAR"/>
+        <result property="entertainmentId" column="entertainmentId" jdbcType="INTEGER"/>
+        <result property="entertainmentName" column="entertainmentName" jdbcType="VARCHAR"/>
+        <result property="entertainmentType" column="entertainmentType" jdbcType="VARCHAR"/>
+        <result property="phoneNumber" column="phoneNumber" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->

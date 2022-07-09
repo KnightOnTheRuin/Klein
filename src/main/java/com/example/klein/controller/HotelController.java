@@ -2,16 +2,18 @@ package com.example.klein.controller;
 
 import com.example.klein.entity.Hotel;
 import com.example.klein.service.HotelService;
+import com.example.klein.service.HotelService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 /**
- * (Hotel)表控制层
+ * 酒店实体表(Hotel)表控制层
  *
  * @author makejava
- * @since 2022-07-08 19:08:11
+ * @since 2022-07-09 19:03:47
  */
 @RestController
 @RequestMapping("hotel")
@@ -32,8 +34,8 @@ public class HotelController {
     /*@GetMapping
     public ResponseEntity<Page<Hotel>> queryByPage(Hotel hotel, PageRequest pageRequest) {
         return ResponseEntity.ok(this.hotelService.queryByPage(hotel, pageRequest));
-    }*/
-
+    }
+*/
     /**
      * 通过主键查询单条数据
      *

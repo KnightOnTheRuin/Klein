@@ -4,10 +4,10 @@
 
     <resultMap id="BaseResultMap" type="com.example.klein.entity.Roomorder">
         <!--@Table roomorder-->
-        <result property="orderid" column="orderId" jdbcType="INTEGER"/>
-        <result property="roomid" column="roomId" jdbcType="INTEGER"/>
-        <result property="visitorid" column="visitorId" jdbcType="INTEGER"/>
-        <result property="administratorid" column="administratorId" jdbcType="INTEGER"/>
+        <result property="orderId" column="orderId" jdbcType="INTEGER"/>
+        <result property="roomId" column="roomId" jdbcType="INTEGER"/>
+        <result property="visitorId" column="visitorId" jdbcType="INTEGER"/>
+        <result property="administratorId" column="administratorId" jdbcType="INTEGER"/>
         <result property="result" column="result" jdbcType="INTEGER"/>
     </resultMap>
 

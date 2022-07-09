@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 /**
- * (Nearty)表控制层
+ * 景区附近的酒店关系表(Nearty)表控制层
  *
  * @author makejava
- * @since 2022-07-08 19:08:33
+ * @since 2022-07-09 19:20:11
  */
 @RestController
 @RequestMapping("nearty")
@@ -29,11 +29,11 @@ public class NeartyController {
      * @param pageRequest      分页对象
      * @return 查询结果
      */
-   /* @GetMapping
+    /*@GetMapping
     public ResponseEntity<Page<Nearty>> queryByPage(Nearty nearty, PageRequest pageRequest) {
         return ResponseEntity.ok(this.neartyService.queryByPage(nearty, pageRequest));
-    }*/
-
+    }
+*/
     /**
      * 通过主键查询单条数据
      *

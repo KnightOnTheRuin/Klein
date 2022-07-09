@@ -5,10 +5,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * (Hotel)表数据库访问层
+ * 酒店实体表(Hotel)表数据库访问层
  *
  * @author makejava
- * @since 2022-07-08 19:08:11
+ * @since 2022-07-09 19:04:30
  */
 public interface HotelDao {
 
@@ -27,7 +27,7 @@ public interface HotelDao {
      * @param pageable         分页对象
      * @return 对象列表
      */
-   /* List<Hotel> queryAllByLimit(Hotel hotel, @Param("pageable") Pageable pageable);*/
+/*    List<Hotel> queryAllByLimit(Hotel hotel, @Param("pageable") Pageable pageable);*/
 
     /**
      * 统计总行数

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (User)表服务实现类
@@ -29,6 +30,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User queryById(Long userid) {
         return this.userDao.queryById(userid);
+    }
+
+    @Override
+    public User userLogin(String phoneNumber, String password) {
+        return this.userDao.userLogin(phoneNumber, password);
+    }
+    @Override
+    public List<User> queryAll(){
+        return this.userDao.queryAll();
     }
 
     /**

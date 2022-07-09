@@ -4,9 +4,9 @@
 
     <resultMap id="BaseResultMap" type="com.example.klein.entity.Scenicarea">
         <!--@Table scenicarea-->
-        <result property="scenicareaid" column="scenicAreaId" jdbcType="INTEGER"/>
-        <result property="scenicareaname" column="scenicAreaName" jdbcType="VARCHAR"/>
-        <result property="phonenumber" column="phoneNumber" jdbcType="VARCHAR"/>
+        <result property="scenicAreaId" column="scenicAreaId" jdbcType="INTEGER"/>
+        <result property="scenicAreaName" column="scenicAreaName" jdbcType="VARCHAR"/>
+        <result property="phoneNumber" column="phoneNumber" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->

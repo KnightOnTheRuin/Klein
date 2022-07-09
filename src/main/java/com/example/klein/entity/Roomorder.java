@@ -11,47 +11,47 @@ import java.io.Serializable;
 public class Roomorder implements Serializable {
     private static final long serialVersionUID = -56986179372422842L;
     
-    private Long orderid;
+    private Long orderId;
     
-    private Long roomid;
+    private Long roomId;
     
-    private Long visitorid;
+    private Long visitorId;
     
-    private Long administratorid;
+    private Long administratorId;
     
     private Integer result;
 
 
-    public Long getOrderid() {
-        return orderid;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrderid(Long orderid) {
-        this.orderid = orderid;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
-    public Long getRoomid() {
-        return roomid;
+    public Long getRoomId() {
+        return roomId;
     }
 
-    public void setRoomid(Long roomid) {
-        this.roomid = roomid;
+    public void setRoomId(Long roomId) {
+        this.roomId = roomId;
     }
 
-    public Long getVisitorid() {
-        return visitorid;
+    public Long getVisitorId() {
+        return visitorId;
     }
 
-    public void setVisitorid(Long visitorid) {
-        this.visitorid = visitorid;
+    public void setVisitorId(Long visitorId) {
+        this.visitorId = visitorId;
     }
 
-    public Long getAdministratorid() {
-        return administratorid;
+    public Long getAdministratorId() {
+        return administratorId;
     }
 
-    public void setAdministratorid(Long administratorid) {
-        this.administratorid = administratorid;
+    public void setAdministratorId(Long administratorId) {
+        this.administratorId = administratorId;
     }
 
     public Integer getResult() {

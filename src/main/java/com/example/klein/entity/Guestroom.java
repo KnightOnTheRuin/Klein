@@ -11,47 +11,47 @@ import java.io.Serializable;
 public class Guestroom implements Serializable {
     private static final long serialVersionUID = 218922223153514706L;
     
-    private Long roomid;
+    private Long roomId;
     
-    private String roomenvironment;
+    private String roomEnvironment;
     
-    private String roomtype;
+    private String roomType;
     
-    private Integer isreserved;
+    private Integer isReserved;
     
     private String price;
 
 
-    public Long getRoomid() {
-        return roomid;
+    public Long getRoomId() {
+        return roomId;
     }
 
-    public void setRoomid(Long roomid) {
-        this.roomid = roomid;
+    public void setRoomId(Long roomId) {
+        this.roomId = roomId;
     }
 
-    public String getRoomenvironment() {
-        return roomenvironment;
+    public String getRoomEnvironment() {
+        return roomEnvironment;
     }
 
-    public void setRoomenvironment(String roomenvironment) {
-        this.roomenvironment = roomenvironment;
+    public void setRoomEnvironment(String roomEnvironment) {
+        this.roomEnvironment = roomEnvironment;
     }
 
-    public String getRoomtype() {
-        return roomtype;
+    public String getRoomType() {
+        return roomType;
     }
 
-    public void setRoomtype(String roomtype) {
-        this.roomtype = roomtype;
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
     }
 
-    public Integer getIsreserved() {
-        return isreserved;
+    public Integer getIsReserved() {
+        return isReserved;
     }
 
-    public void setIsreserved(Integer isreserved) {
-        this.isreserved = isreserved;
+    public void setIsReserved(Integer isReserved) {
+        this.isReserved = isReserved;
     }
 
     public String getPrice() {

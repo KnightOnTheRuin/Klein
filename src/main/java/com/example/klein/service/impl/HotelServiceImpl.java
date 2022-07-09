@@ -4,19 +4,17 @@ import com.example.klein.entity.Hotel;
 import com.example.klein.dao.HotelDao;
 import com.example.klein.service.HotelService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 
 import javax.annotation.Resource;
 
 /**
- * (Hotel)表服务实现类
+ * 酒店实体表(Hotel)表服务实现类
  *
  * @author makejava
- * @since 2022-07-08 19:08:11
+ * @since 2022-07-09 19:04:35
  */
 @Service("hotelService")
-@Transactional
 public class HotelServiceImpl implements HotelService {
     @Resource
     private HotelDao hotelDao;
@@ -66,7 +64,7 @@ public class HotelServiceImpl implements HotelService {
     @Override
     public Hotel update(Hotel hotel) {
         this.hotelDao.update(hotel);
-        return this.queryById(hotel.getHotelid());
+        return this.queryById(hotel.getHotelId());
     }
 
     /**

@@ -3,10 +3,10 @@ package com.example.klein.service;
 import com.example.klein.entity.Hotel;
 
 /**
- * (Hotel)表服务接口
+ * 酒店实体表(Hotel)表服务接口
  *
  * @author makejava
- * @since 2022-07-08 19:08:11
+ * @since 2022-07-09 19:04:34
  */
 public interface HotelService {
 
@@ -25,7 +25,7 @@ public interface HotelService {
      * @param pageRequest      分页对象
      * @return 查询结果
      */
-    /*Page<Hotel> queryByPage(Hotel hotel, PageRequest pageRequest);*/
+  /*  Page<Hotel> queryByPage(Hotel hotel, PageRequest pageRequest);*/
 
     /**
      * 新增数据

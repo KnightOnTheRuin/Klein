@@ -5,10 +5,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * (Nearty)表数据库访问层
+ * 景区附近的酒店关系表(Nearty)表数据库访问层
  *
  * @author makejava
- * @since 2022-07-08 19:08:33
+ * @since 2022-07-09 19:20:11
  */
 public interface NeartyDao {
 
@@ -27,7 +27,7 @@ public interface NeartyDao {
      * @param pageable         分页对象
      * @return 对象列表
      */
-    /*List<Nearty> queryAllByLimit(Nearty nearty, @Param("pageable") Pageable pageable);*/
+   /* List<Nearty> queryAllByLimit(Nearty nearty, @Param("pageable") Pageable pageable);*/
 
     /**
      * 统计总行数

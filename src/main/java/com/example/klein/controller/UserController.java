@@ -2,10 +2,12 @@ package com.example.klein.controller;
 
 import com.example.klein.entity.User;
 import com.example.klein.service.UserService;
+import com.example.klein.utils.result.Result;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (User)表控制层
@@ -37,12 +39,42 @@ public class UserController {
     /**
      * 通过主键查询单条数据
      *
-     * @param id 主键
+     * @param userId 主键
      * @return 单条数据
      */
-    @GetMapping("{id}")
-    public ResponseEntity<User> queryById(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(this.userService.queryById(id));
+    @GetMapping("/queryById")
+    public Result queryById(@RequestBody long userId){
+        return Result.success(this.userService.queryById(userId));
+    }
+
+    //普通用户登录
+    @PostMapping("/userLogin")
+    public Result userLogin(@RequestBody User user) {
+        User _user = this.userService.userLogin(user.getPhoneNumber(), user.getPassword());
+        Result result = new Result();
+       if(_user != null){
+           result.setData(_user);
+           result.setMsg("登陆成功");
+           result.setCode(200);
+       }else{
+            result.setCode(402);
+            result.setMsg("登陆失败");
+            result.setData(null);
+       }
+        return result;
+    }
+
+    //查询数据库所有数据
+    @PostMapping("/queryAll")
+    public Result queryAll(){
+        Result result = new Result();
+        List<User> userList = this.userService.queryAll();
+        if(userList != null){
+            result.setData(userList);
+        }else{
+            result.setData(null);
+        }
+        return Result.success(result.getData());
     }
 
     /**
@@ -51,9 +83,26 @@ public class UserController {
      * @param user 实体
      * @return 新增结果
      */
-    @PostMapping
+  /*  @PostMapping
     public ResponseEntity<User> add(User user) {
         return ResponseEntity.ok(this.userService.insert(user));
+    }
+*/
+    @PostMapping("/userRegister")
+    public Result userRegister(@RequestBody User user){
+        Result result = new Result();
+        User _user =  this.userService.insert(user);
+        if(_user != null){
+            result.setMsg("注册成功");
+            result.setData(null);
+            result.setCode(200);
+        }else{
+            System.out.println("注册用户失败！");
+            result.setData(null);
+            result.setCode(402);
+            result.setMsg("注册失败");
+        }
+        return result;
     }
 
     /**

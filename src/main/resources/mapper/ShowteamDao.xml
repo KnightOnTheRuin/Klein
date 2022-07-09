@@ -4,9 +4,9 @@
 
     <resultMap id="BaseResultMap" type="com.example.klein.entity.Showteam">
         <!--@Table showteam-->
-        <result property="showteamid" column="showTeamId" jdbcType="INTEGER"/>
-        <result property="showteamtype" column="showTeamType" jdbcType="VARCHAR"/>
-        <result property="showteamname" column="showTeamName" jdbcType="VARCHAR"/>
+        <result property="showTeamId" column="showTeamId" jdbcType="INTEGER"/>
+        <result property="showTeamType" column="showTeamType" jdbcType="VARCHAR"/>
+        <result property="showTeamName" column="showTeamName" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->

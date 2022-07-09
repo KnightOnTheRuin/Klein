@@ -20,6 +20,10 @@ public interface UserDao {
      */
     User queryById(Long userid);
 
+    User userLogin(String phoneNumber, String password);
+
+    List<User> queryAll();
+
     /**
      * 查询指定行数据
      *

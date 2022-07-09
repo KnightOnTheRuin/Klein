@@ -11,35 +11,35 @@ import java.io.Serializable;
 public class Roombelongs implements Serializable {
     private static final long serialVersionUID = 997344102955965784L;
     
-    private Long belongsid;
+    private Long belongsId;
     
-    private Long roomid;
+    private Long roomId;
     
-    private Long hotelid;
+    private Long hotelId;
 
 
-    public Long getBelongsid() {
-        return belongsid;
+    public Long getBelongsId() {
+        return belongsId;
     }
 
-    public void setBelongsid(Long belongsid) {
-        this.belongsid = belongsid;
+    public void setBelongsId(Long belongsId) {
+        this.belongsId = belongsId;
     }
 
-    public Long getRoomid() {
-        return roomid;
+    public Long getRoomId() {
+        return roomId;
     }
 
-    public void setRoomid(Long roomid) {
-        this.roomid = roomid;
+    public void setRoomId(Long roomId) {
+        this.roomId = roomId;
     }
 
-    public Long getHotelid() {
-        return hotelid;
+    public Long getHotelId() {
+        return hotelId;
     }
 
-    public void setHotelid(Long hotelid) {
-        this.hotelid = hotelid;
+    public void setHotelId(Long hotelId) {
+        this.hotelId = hotelId;
     }
 
 }

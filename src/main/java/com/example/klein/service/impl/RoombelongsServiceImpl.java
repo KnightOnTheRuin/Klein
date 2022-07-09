@@ -65,7 +65,7 @@ public class RoombelongsServiceImpl implements RoombelongsService {
     @Override
     public Roombelongs update(Roombelongs roombelongs) {
         this.roombelongsDao.update(roombelongs);
-        return this.queryById(roombelongs.getBelongsid());
+        return this.queryById(roombelongs.getBelongsId());
     }
 
     /**

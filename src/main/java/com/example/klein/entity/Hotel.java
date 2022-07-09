@@ -3,55 +3,57 @@ package com.example.klein.entity;
 import java.io.Serializable;
 
 /**
- * (Hotel)实体类
+ * 酒店实体表(Hotel)实体类
  *
  * @author makejava
- * @since 2022-07-08 19:08:11
+ * @since 2022-07-09 19:04:32
  */
 public class Hotel implements Serializable {
-    private static final long serialVersionUID = -28885981114150919L;
+    private static final long serialVersionUID = 338720900725631261L;
     
-    private Long hotelid;
+    private Long hotelId;
     
-    private String hotelname;
+    private String hotelName;
     
-    private Integer startlevel;
+    private Integer startLevel;
     
-    private String phonenumber;
+    private String phoneNumber;
     
     private String address;
+    
+    private String price;
 
 
-    public Long getHotelid() {
-        return hotelid;
+    public Long getHotelId() {
+        return hotelId;
     }
 
-    public void setHotelid(Long hotelid) {
-        this.hotelid = hotelid;
+    public void setHotelId(Long hotelId) {
+        this.hotelId = hotelId;
     }
 
-    public String getHotelname() {
-        return hotelname;
+    public String getHotelName() {
+        return hotelName;
     }
 
-    public void setHotelname(String hotelname) {
-        this.hotelname = hotelname;
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
     }
 
-    public Integer getStartlevel() {
-        return startlevel;
+    public Integer getStartLevel() {
+        return startLevel;
     }
 
-    public void setStartlevel(Integer startlevel) {
-        this.startlevel = startlevel;
+    public void setStartLevel(Integer startLevel) {
+        this.startLevel = startLevel;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {
@@ -60,6 +62,14 @@ public class Hotel implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
 }

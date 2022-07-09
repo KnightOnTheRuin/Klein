@@ -4,11 +4,11 @@
 
     <resultMap id="BaseResultMap" type="com.example.klein.entity.Performance">
         <!--@Table performance-->
-        <result property="performanceid" column="performanceId" jdbcType="INTEGER"/>
-        <result property="scenicareaid" column="scenicAreaId" jdbcType="INTEGER"/>
-        <result property="showteamid" column="showTeamId" jdbcType="INTEGER"/>
-        <result property="performancename" column="performanceName" jdbcType="VARCHAR"/>
-        <result property="performancetype" column="performanceType" jdbcType="VARCHAR"/>
+        <result property="performanceId" column="performanceId" jdbcType="INTEGER"/>
+        <result property="scenicAreaId" column="scenicAreaId" jdbcType="INTEGER"/>
+        <result property="showTeamId" column="showTeamId" jdbcType="INTEGER"/>
+        <result property="performanceName" column="performanceName" jdbcType="VARCHAR"/>
+        <result property="performanceType" column="performanceType" jdbcType="VARCHAR"/>
         <result property="time" column="time" jdbcType="VARCHAR"/>
     </resultMap>
 

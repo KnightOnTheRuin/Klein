@@ -11,57 +11,57 @@ import java.io.Serializable;
 public class Performance implements Serializable {
     private static final long serialVersionUID = 477233976815660561L;
     
-    private Long performanceid;
+    private Long performanceId;
     
-    private Long scenicareaid;
+    private Long scenicAreaId;
     
-    private Long showteamid;
+    private Long showTeamId;
     
-    private String performancename;
+    private String performanceName;
     
-    private String performancetype;
+    private String performanceType;
     
     private String time;
 
 
-    public Long getPerformanceid() {
-        return performanceid;
+    public Long getPerformanceId() {
+        return performanceId;
     }
 
-    public void setPerformanceid(Long performanceid) {
-        this.performanceid = performanceid;
+    public void setPerformanceId(Long performanceId) {
+        this.performanceId = performanceId;
     }
 
-    public Long getScenicareaid() {
-        return scenicareaid;
+    public Long getScenicAreaId() {
+        return scenicAreaId;
     }
 
-    public void setScenicareaid(Long scenicareaid) {
-        this.scenicareaid = scenicareaid;
+    public void setScenicAreaId(Long scenicAreaId) {
+        this.scenicAreaId = scenicAreaId;
     }
 
-    public Long getShowteamid() {
-        return showteamid;
+    public Long getShowTeamId() {
+        return showTeamId;
     }
 
-    public void setShowteamid(Long showteamid) {
-        this.showteamid = showteamid;
+    public void setShowTeamId(Long showTeamId) {
+        this.showTeamId = showTeamId;
     }
 
-    public String getPerformancename() {
-        return performancename;
+    public String getPerformanceName() {
+        return performanceName;
     }
 
-    public void setPerformancename(String performancename) {
-        this.performancename = performancename;
+    public void setPerformanceName(String performanceName) {
+        this.performanceName = performanceName;
     }
 
-    public String getPerformancetype() {
-        return performancetype;
+    public String getPerformanceType() {
+        return performanceType;
     }
 
-    public void setPerformancetype(String performancetype) {
-        this.performancetype = performancetype;
+    public void setPerformanceType(String performanceType) {
+        this.performanceType = performanceType;
     }
 
     public String getTime() {

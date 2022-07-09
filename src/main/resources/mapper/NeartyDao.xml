@@ -4,49 +4,33 @@
 
     <resultMap id="BaseResultMap" type="com.example.klein.entity.Nearty">
         <!--@Table nearty-->
-        <result property="neartyid" column="neartyId" jdbcType="INTEGER"/>
-        <result property="scenicareaid" column="scenicAreaId" jdbcType="INTEGER"/>
-        <result property="hotel1id" column="hotel1Id" jdbcType="INTEGER"/>
-        <result property="hotel2id" column="hotel2Id" jdbcType="INTEGER"/>
-        <result property="hotel3id" column="hotel3Id" jdbcType="INTEGER"/>
-        <result property="hotel4id" column="hotel4Id" jdbcType="INTEGER"/>
-        <result property="hotel5id" column="hotel5Id" jdbcType="INTEGER"/>
+        <result property="neartyId" column="neartyId" jdbcType="INTEGER"/>
+        <result property="scenicAreaId" column="scenicAreaId" jdbcType="INTEGER"/>
+        <result property="hotelId" column="hotelId" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
         select
-          neartyId, scenicAreaId, hotel1Id, hotel2Id, hotel3Id, hotel4Id, hotel5Id
+          neartyId, scenicAreaId, hotelId
         from nearty
-        where neartyId = #{neartyid}
+        where neartyId = #{neartyId}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
         select
-          neartyId, scenicAreaId, hotel1Id, hotel2Id, hotel3Id, hotel4Id, hotel5Id
+          neartyId, scenicAreaId, hotelId
         from nearty
         <where>
-            <if test="neartyid != null">
-                and neartyId = #{neartyid}
+            <if test="neartyId != null">
+                and neartyId = #{neartyId}
             </if>
-            <if test="scenicareaid != null">
-                and scenicAreaId = #{scenicareaid}
+            <if test="scenicAreaId != null">
+                and scenicAreaId = #{scenicAreaId}
             </if>
-            <if test="hotel1id != null">
-                and hotel1Id = #{hotel1id}
-            </if>
-            <if test="hotel2id != null">
-                and hotel2Id = #{hotel2id}
-            </if>
-            <if test="hotel3id != null">
-                and hotel3Id = #{hotel3id}
-            </if>
-            <if test="hotel4id != null">
-                and hotel4Id = #{hotel4id}
-            </if>
-            <if test="hotel5id != null">
-                and hotel5Id = #{hotel5id}
+            <if test="hotelId != null">
+                and hotelId = #{hotelId}
             </if>
         </where>
         limit #{pageable.offset}, #{pageable.pageSize}
@@ -55,7 +39,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BaseResultMap">
         select
-          neartyId, scenicAreaId, hotel1Id, hotel2Id, hotel3Id, hotel4Id, hotel5Id
+          neartyId, scenicAreaId, hotelId
         from klein.nearty
     </select>
     <!--统计总行数-->
@@ -63,88 +47,60 @@
         select count(1)
         from nearty
         <where>
-            <if test="neartyid != null">
-                and neartyId = #{neartyid}
+            <if test="neartyId != null">
+                and neartyId = #{neartyId}
             </if>
-            <if test="scenicareaid != null">
-                and scenicAreaId = #{scenicareaid}
+            <if test="scenicAreaId != null">
+                and scenicAreaId = #{scenicAreaId}
             </if>
-            <if test="hotel1id != null">
-                and hotel1Id = #{hotel1id}
-            </if>
-            <if test="hotel2id != null">
-                and hotel2Id = #{hotel2id}
-            </if>
-            <if test="hotel3id != null">
-                and hotel3Id = #{hotel3id}
-            </if>
-            <if test="hotel4id != null">
-                and hotel4Id = #{hotel4id}
-            </if>
-            <if test="hotel5id != null">
-                and hotel5Id = #{hotel5id}
+            <if test="hotelId != null">
+                and hotelId = #{hotelId}
             </if>
         </where>
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="neartyid" useGeneratedKeys="true">
-        insert into nearty(scenicAreaId, hotel1Id, hotel2Id, hotel3Id, hotel4Id, hotel5Id)
-        values (#{scenicareaid}, #{hotel1id}, #{hotel2id}, #{hotel3id}, #{hotel4id}, #{hotel5id})
+    <insert id="insert" keyProperty="neartyId" useGeneratedKeys="true">
+        insert into nearty(scenicAreaId, hotelId)
+        values (#{scenicAreaId}, #{hotelId})
     </insert>
 
-    <insert id="insertBatch" keyProperty="neartyid" useGeneratedKeys="true">
-        insert into nearty(scenicAreaId, hotel1Id, hotel2Id, hotel3Id, hotel4Id, hotel5Id)
+    <insert id="insertBatch" keyProperty="neartyId" useGeneratedKeys="true">
+        insert into nearty(scenicAreaId, hotelId)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.scenicareaid}, #{entity.hotel1id}, #{entity.hotel2id}, #{entity.hotel3id}, #{entity.hotel4id}, #{entity.hotel5id})
+        (#{entity.scenicAreaId}, #{entity.hotelId})
         </foreach>
     </insert>
 
-    <insert id="insertOrUpdateBatch" keyProperty="neartyid" useGeneratedKeys="true">
-        insert into nearty(scenicAreaId, hotel1Id, hotel2Id, hotel3Id, hotel4Id, hotel5Id)
+    <insert id="insertOrUpdateBatch" keyProperty="neartyId" useGeneratedKeys="true">
+        insert into nearty(scenicAreaId, hotelId)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.scenicareaid}, #{entity.hotel1id}, #{entity.hotel2id}, #{entity.hotel3id}, #{entity.hotel4id}, #{entity.hotel5id})
+            (#{entity.scenicAreaId}, #{entity.hotelId})
         </foreach>
         on duplicate key update
         scenicAreaId = values(scenicAreaId),
-        hotel1Id = values(hotel1Id),
-        hotel2Id = values(hotel2Id),
-        hotel3Id = values(hotel3Id),
-        hotel4Id = values(hotel4Id),
-        hotel5Id = values(hotel5Id)
+        hotelId = values(hotelId),
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
         update nearty
         <set>
-            <if test="scenicareaid != null">
-                scenicAreaId = #{scenicareaid},
+            <if test="scenicAreaId != null">
+                scenicAreaId = #{scenicAreaId},
             </if>
-            <if test="hotel1id != null">
-                hotel1Id = #{hotel1id},
-            </if>
-            <if test="hotel2id != null">
-                hotel2Id = #{hotel2id},
-            </if>
-            <if test="hotel3id != null">
-                hotel3Id = #{hotel3id},
-            </if>
-            <if test="hotel4id != null">
-                hotel4Id = #{hotel4id},
-            </if>
-            <if test="hotel5id != null">
-                hotel5Id = #{hotel5id},
+            <if test="hotelId != null">
+                hotelId = #{hotelId},
             </if>
         </set>
-        where neartyId = #{neartyid}
+        where neartyId = #{neartyId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from nearty where neartyId = #{neartyid}
+        delete from nearty where neartyId = #{neartyId}
     </delete>
 
 </mapper>

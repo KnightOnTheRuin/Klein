@@ -2,11 +2,12 @@ package com.example.klein.service;
 
 import com.example.klein.entity.Nearty;
 
+
 /**
- * (Nearty)表服务接口
+ * 景区附近的酒店关系表(Nearty)表服务接口
  *
  * @author makejava
- * @since 2022-07-08 19:08:33
+ * @since 2022-07-09 19:20:18
  */
 public interface NeartyService {
 
@@ -25,7 +26,7 @@ public interface NeartyService {
      * @param pageRequest      分页对象
      * @return 查询结果
      */
-    /*Page<Nearty> queryByPage(Nearty nearty, PageRequest pageRequest);*/
+   /* Page<Nearty> queryByPage(Nearty nearty, PageRequest pageRequest);*/
 
     /**
      * 新增数据

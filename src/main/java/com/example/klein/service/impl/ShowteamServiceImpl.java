@@ -65,7 +65,7 @@ public class ShowteamServiceImpl implements ShowteamService {
     @Override
     public Showteam update(Showteam showteam) {
         this.showteamDao.update(showteam);
-        return this.queryById(showteam.getShowteamid());
+        return this.queryById(showteam.getShowTeamId());
     }
 
     /**

@@ -11,45 +11,45 @@ import java.io.Serializable;
 public class Entertainment implements Serializable {
     private static final long serialVersionUID = 533613795942216362L;
     
-    private Long entertainmentid;
+    private Long entertainmentId;
     
-    private String entertainmentname;
+    private String entertainmentName;
     
-    private String entertainmenttype;
+    private String entertainmentType;
     
-    private String phonenumber;
+    private String phoneNumber;
 
 
-    public Long getEntertainmentid() {
-        return entertainmentid;
+    public Long getEntertainmentId() {
+        return entertainmentId;
     }
 
-    public void setEntertainmentid(Long entertainmentid) {
-        this.entertainmentid = entertainmentid;
+    public void setEntertainmentId(Long entertainmentId) {
+        this.entertainmentId = entertainmentId;
     }
 
-    public String getEntertainmentname() {
-        return entertainmentname;
+    public String getEntertainmentName() {
+        return entertainmentName;
     }
 
-    public void setEntertainmentname(String entertainmentname) {
-        this.entertainmentname = entertainmentname;
+    public void setEntertainmentName(String entertainmentName) {
+        this.entertainmentName = entertainmentName;
     }
 
-    public String getEntertainmenttype() {
-        return entertainmenttype;
+    public String getEntertainmentType() {
+        return entertainmentType;
     }
 
-    public void setEntertainmenttype(String entertainmenttype) {
-        this.entertainmenttype = entertainmenttype;
+    public void setEntertainmentType(String entertainmentType) {
+        this.entertainmentType = entertainmentType;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
 }

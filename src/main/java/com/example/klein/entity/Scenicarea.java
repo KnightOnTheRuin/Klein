@@ -11,35 +11,35 @@ import java.io.Serializable;
 public class Scenicarea implements Serializable {
     private static final long serialVersionUID = 322459403977998110L;
     
-    private Long scenicareaid;
+    private Long scenicAreaId;
     
-    private String scenicareaname;
+    private String scenicAreaName;
     
-    private String phonenumber;
+    private String phoneNumber;
 
 
-    public Long getScenicareaid() {
-        return scenicareaid;
+    public Long getScenicAreaId() {
+        return scenicAreaId;
     }
 
-    public void setScenicareaid(Long scenicareaid) {
-        this.scenicareaid = scenicareaid;
+    public void setScenicAreaId(Long scenicAreaId) {
+        this.scenicAreaId = scenicAreaId;
     }
 
-    public String getScenicareaname() {
-        return scenicareaname;
+    public String getScenicAreaName() {
+        return scenicAreaName;
     }
 
-    public void setScenicareaname(String scenicareaname) {
-        this.scenicareaname = scenicareaname;
+    public void setScenicAreaName(String scenicAreaName) {
+        this.scenicAreaName = scenicAreaName;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
 }

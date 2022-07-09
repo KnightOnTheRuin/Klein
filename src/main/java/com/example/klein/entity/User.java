@@ -11,23 +11,23 @@ import java.io.Serializable;
 public class User implements Serializable {
     private static final long serialVersionUID = 926239666797360948L;
     
-    private Long userid;
+    private Long userId;
     
     private String name;
     
-    private String phonenumber;
+    private String phoneNumber;
     
     private String password;
     
-    private Integer isadmin;
+    private Integer isAdmin;
 
 
     public Long getUserid() {
-        return userid;
+        return userId;
     }
 
     public void setUserid(Long userid) {
-        this.userid = userid;
+        this.userId = userId;
     }
 
     public String getName() {
@@ -38,12 +38,12 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getPassword() {
@@ -54,12 +54,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Integer getIsadmin() {
-        return isadmin;
+    public Integer getIsAdmin() {
+        return isAdmin;
     }
 
-    public void setIsadmin(Integer isadmin) {
-        this.isadmin = isadmin;
+    public void setIsAdmin(Integer isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
 }

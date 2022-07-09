@@ -4,19 +4,16 @@ import com.example.klein.entity.Nearty;
 import com.example.klein.dao.NeartyDao;
 import com.example.klein.service.NeartyService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 
 import javax.annotation.Resource;
 
 /**
- * (Nearty)表服务实现类
+ * 景区附近的酒店关系表(Nearty)表服务实现类
  *
  * @author makejava
- * @since 2022-07-08 19:08:33
+ * @since 2022-07-09 19:20:18
  */
 @Service("neartyService")
-@Transactional
 public class NeartyServiceImpl implements NeartyService {
     @Resource
     private NeartyDao neartyDao;
@@ -39,7 +36,7 @@ public class NeartyServiceImpl implements NeartyService {
      * @param pageRequest      分页对象
      * @return 查询结果
      */
-    /*@Override
+   /* @Override
     public Page<Nearty> queryByPage(Nearty nearty, PageRequest pageRequest) {
         long total = this.neartyDao.count(nearty);
         return new PageImpl<>(this.neartyDao.queryAllByLimit(nearty, pageRequest), pageRequest, total);
@@ -66,7 +63,7 @@ public class NeartyServiceImpl implements NeartyService {
     @Override
     public Nearty update(Nearty nearty) {
         this.neartyDao.update(nearty);
-        return this.queryById(nearty.getNeartyid());
+        return this.queryById(nearty.getNeartyId());
     }
 
     /**

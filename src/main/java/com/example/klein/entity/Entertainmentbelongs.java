@@ -11,27 +11,27 @@ import java.io.Serializable;
 public class Entertainmentbelongs implements Serializable {
     private static final long serialVersionUID = -41590425731114734L;
     
-    private Long belongsid;
+    private Long belongsId;
     
-    private Long scenicareaid;
+    private Long scenicareaId;
     
     private Long entertainmentid;
 
 
-    public Long getBelongsid() {
-        return belongsid;
+    public Long getBelongsId() {
+        return belongsId;
     }
 
-    public void setBelongsid(Long belongsid) {
-        this.belongsid = belongsid;
+    public void setBelongsId(Long belongsId) {
+        this.belongsId = belongsId;
     }
 
-    public Long getScenicareaid() {
-        return scenicareaid;
+    public Long getScenicareaId() {
+        return scenicareaId;
     }
 
-    public void setScenicareaid(Long scenicareaid) {
-        this.scenicareaid = scenicareaid;
+    public void setScenicareaId(Long scenicareaId) {
+        this.scenicareaId = scenicareaId;
     }
 
     public Long getEntertainmentid() {

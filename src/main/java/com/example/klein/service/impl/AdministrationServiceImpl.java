@@ -66,7 +66,7 @@ public class AdministrationServiceImpl implements AdministrationService {
     @Override
     public Administration update(Administration administration) {
         this.administrationDao.update(administration);
-        return this.queryById(administration.getAdministrationid());
+        return this.queryById(administration.getAdministrationId());
     }
 
     /**

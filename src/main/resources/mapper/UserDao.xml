@@ -4,11 +4,11 @@
 
     <resultMap id="BaseResultMap" type="com.example.klein.entity.User">
         <!--@Table user-->
-        <result property="userid" column="userId" jdbcType="INTEGER"/>
+        <result property="userId" column="userId" jdbcType="INTEGER"/>
         <result property="name" column="name" jdbcType="VARCHAR"/>
-        <result property="phonenumber" column="phoneNumber" jdbcType="VARCHAR"/>
+        <result property="phoneNumber" column="phoneNumber" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
-        <result property="isadmin" column="isAdmin" jdbcType="INTEGER"/>
+        <result property="isAdmin" column="isAdmin" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
@@ -16,7 +16,7 @@
         select
           userId, name, phoneNumber, password, isAdmin
         from user
-        where userId = #{userid}
+        where userId = #{userId}
     </select>
 
     <!--查询指定行数据-->
@@ -25,20 +25,20 @@
           userId, name, phoneNumber, password, isAdmin
         from user
         <where>
-            <if test="userid != null">
-                and userId = #{userid}
+            <if test="userId != null">
+                and userId = #{userId}
             </if>
             <if test="name != null and name != ''">
                 and name = #{name}
             </if>
-            <if test="phonenumber != null and phonenumber != ''">
-                and phoneNumber = #{phonenumber}
+            <if test="phoneNumber != null and phoneNumber != ''">
+                and phoneNumber = #{phoneNumber}
             </if>
             <if test="password != null and password != ''">
                 and password = #{password}
             </if>
-            <if test="isadmin != null">
-                and isAdmin = #{isadmin}
+            <if test="isAdmin != null">
+                and isAdmin = #{isAdmin}
             </if>
         </where>
         limit #{pageable.offset}, #{pageable.pageSize}
@@ -55,43 +55,43 @@
         select count(1)
         from user
         <where>
-            <if test="userid != null">
-                and userId = #{userid}
+            <if test="userId != null">
+                and userId = #{userId}
             </if>
             <if test="name != null and name != ''">
                 and name = #{name}
             </if>
-            <if test="phonenumber != null and phonenumber != ''">
-                and phoneNumber = #{phonenumber}
+            <if test="phoneNumber != null and phoneNumber != ''">
+                and phoneNumber = #{phoneNumber}
             </if>
             <if test="password != null and password != ''">
                 and password = #{password}
             </if>
-            <if test="isadmin != null">
-                and isAdmin = #{isadmin}
+            <if test="isAdmin != null">
+                and isAdmin = #{isAdmin}
             </if>
         </where>
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="userid" useGeneratedKeys="true">
+    <insert id="insert" keyProperty="userId" useGeneratedKeys="true">
         insert into user(name, phoneNumber, password, isAdmin)
-        values (#{name}, #{phonenumber}, #{password}, #{isadmin})
+        values (#{name}, #{phoneNumber}, #{password}, #{isAdmin})
     </insert>
 
-    <insert id="insertBatch" keyProperty="userid" useGeneratedKeys="true">
+    <insert id="insertBatch" keyProperty="userId" useGeneratedKeys="true">
         insert into user(name, phoneNumber, password, isAdmin)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.name}, #{entity.phonenumber}, #{entity.password}, #{entity.isadmin})
+        (#{entity.name}, #{entity.phoneNumber}, #{entity.password}, #{entity.isAdmin})
         </foreach>
     </insert>
 
-    <insert id="insertOrUpdateBatch" keyProperty="userid" useGeneratedKeys="true">
+    <insert id="insertOrUpdateBatch" keyProperty="userId" useGeneratedKeys="true">
         insert into user(name, phoneNumber, password, isAdmin)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.name}, #{entity.phonenumber}, #{entity.password}, #{entity.isadmin})
+            (#{entity.name}, #{entity.phoneNumber}, #{entity.password}, #{entity.isAdmin})
         </foreach>
         on duplicate key update
         name = values(name),
@@ -107,23 +107,31 @@
             <if test="name != null and name != ''">
                 name = #{name},
             </if>
-            <if test="phonenumber != null and phonenumber != ''">
-                phoneNumber = #{phonenumber},
+            <if test="phoneNumber != null and phoneNumber != ''">
+                phoneNumber = #{phoneNumber},
             </if>
             <if test="password != null and password != ''">
                 password = #{password},
             </if>
-            <if test="isadmin != null">
-                isAdmin = #{isadmin},
+            <if test="isAdmin != null">
+                isAdmin = #{isAdmin},
             </if>
         </set>
-        where userId = #{userid}
+        where userId = #{userId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from user where userId = #{userid}
+        delete from user where userId = #{userId}
     </delete>
+
+    <!--通过用户账号和密码登陆-->
+    <select id="userLogin" resultMap="BaseResultMap">
+        select
+            userId, name, phoneNumber, password, isAdmin
+        from user
+        where phoneNumber = #{phoneNumber} and password = #{password}
+    </select>
 
 </mapper>
 

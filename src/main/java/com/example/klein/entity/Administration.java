@@ -11,35 +11,35 @@ import java.io.Serializable;
 public class Administration implements Serializable {
     private static final long serialVersionUID = -59241270481846739L;
     
-    private Long administrationid;
+    private Long administrationId;
     
-    private Long administratorid;
+    private Long administratorId;
     
-    private Long hotelid;
+    private Long hotelId;
 
 
-    public Long getAdministrationid() {
-        return administrationid;
+    public Long getAdministrationId() {
+        return administrationId;
     }
 
-    public void setAdministrationid(Long administrationid) {
-        this.administrationid = administrationid;
+    public void setAdministrationId(Long administrationId) {
+        this.administrationId = administrationId;
     }
 
-    public Long getAdministratorid() {
-        return administratorid;
+    public Long getAdministratorId() {
+        return administratorId;
     }
 
-    public void setAdministratorid(Long administratorid) {
-        this.administratorid = administratorid;
+    public void setAdministratorId(Long administratorId) {
+        this.administratorId = administratorId;
     }
 
-    public Long getHotelid() {
-        return hotelid;
+    public Long getHotelId() {
+        return hotelId;
     }
 
-    public void setHotelid(Long hotelid) {
-        this.hotelid = hotelid;
+    public void setHotelId(Long hotelId) {
+        this.hotelId = hotelId;
     }
 
 }

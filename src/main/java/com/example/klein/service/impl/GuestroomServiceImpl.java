@@ -66,7 +66,7 @@ public class GuestroomServiceImpl implements GuestroomService {
     @Override
     public Guestroom update(Guestroom guestroom) {
         this.guestroomDao.update(guestroom);
-        return this.queryById(guestroom.getRoomid());
+        return this.queryById(guestroom.getRoomId());
     }
 
     /**

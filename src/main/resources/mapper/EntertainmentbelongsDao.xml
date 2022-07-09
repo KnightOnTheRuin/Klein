@@ -4,8 +4,8 @@
 
     <resultMap id="BaseResultMap" type="com.example.klein.entity.Entertainmentbelongs">
         <!--@Table entertainmentbelongs-->
-        <result property="belongsid" column="belongsId" jdbcType="INTEGER"/>
-        <result property="scenicareaid" column="scenicAreaId" jdbcType="INTEGER"/>
+        <result property="belongsId" column="belongsId" jdbcType="INTEGER"/>
+        <result property="scenicareaId" column="scenicAreaId" jdbcType="INTEGER"/>
         <result property="entertainmentid" column="entertainmentId" jdbcType="INTEGER"/>
     </resultMap>
 
@@ -42,6 +42,7 @@
           belongsId, scenicAreaId, entertainmentId
         from klein.entertainmentbelongs
     </select>
+
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">
         select count(1)

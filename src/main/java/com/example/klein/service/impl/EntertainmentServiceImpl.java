@@ -65,7 +65,7 @@ public class EntertainmentServiceImpl implements EntertainmentService {
     @Override
     public Entertainment update(Entertainment entertainment) {
         this.entertainmentDao.update(entertainment);
-        return this.queryById(entertainment.getEntertainmentid());
+        return this.queryById(entertainment.getEntertainmentId());
     }
 
     /**

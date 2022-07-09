@@ -4,10 +4,10 @@
 
     <resultMap id="BaseResultMap" type="com.example.klein.entity.Guestroom">
         <!--@Table guestroom-->
-        <result property="roomid" column="roomId" jdbcType="INTEGER"/>
-        <result property="roomenvironment" column="roomEnvironment" jdbcType="VARCHAR"/>
-        <result property="roomtype" column="roomType" jdbcType="VARCHAR"/>
-        <result property="isreserved" column="isReserved" jdbcType="INTEGER"/>
+        <result property="roomId" column="roomId" jdbcType="INTEGER"/>
+        <result property="roomEnvironment" column="roomEnvironment" jdbcType="VARCHAR"/>
+        <result property="roomType" column="roomType" jdbcType="VARCHAR"/>
+        <result property="isReserved" column="isReserved" jdbcType="INTEGER"/>
         <result property="price" column="price" jdbcType="VARCHAR"/>
     </resultMap>
 

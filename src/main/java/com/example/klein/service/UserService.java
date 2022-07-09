@@ -2,6 +2,8 @@ package com.example.klein.service;
 
 import com.example.klein.entity.User;
 
+import java.util.List;
+
 /**
  * (User)表服务接口
  *
@@ -17,6 +19,10 @@ public interface UserService {
      * @return 实例对象
      */
     User queryById(Long userid);
+
+    User userLogin(String phoneNumber, String password);
+
+    List<User> queryAll();
 
     /**
      * 分页查询

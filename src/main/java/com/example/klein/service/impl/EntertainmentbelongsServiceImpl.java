@@ -66,7 +66,7 @@ public class EntertainmentbelongsServiceImpl implements EntertainmentbelongsServ
     @Override
     public Entertainmentbelongs update(Entertainmentbelongs entertainmentbelongs) {
         this.entertainmentbelongsDao.update(entertainmentbelongs);
-        return this.queryById(entertainmentbelongs.getBelongsid());
+        return this.queryById(entertainmentbelongs.getBelongsId());
     }
 
     /**

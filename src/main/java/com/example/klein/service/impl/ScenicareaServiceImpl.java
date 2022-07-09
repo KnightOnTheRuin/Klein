@@ -65,7 +65,7 @@ public class ScenicareaServiceImpl implements ScenicareaService {
     @Override
     public Scenicarea update(Scenicarea scenicarea) {
         this.scenicareaDao.update(scenicarea);
-        return this.queryById(scenicarea.getScenicareaid());
+        return this.queryById(scenicarea.getScenicAreaId());
     }
 
     /**

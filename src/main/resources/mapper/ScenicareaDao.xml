@@ -103,5 +103,11 @@
         delete from scenicarea where scenicAreaId = #{scenicareaid}
     </delete>
 
+    <select id="dimQueryByName" resultMap="BaseResultMap">
+        select
+            *
+        from scenicarea
+        where scenicAreaName like '%#{dimName}}%'
+    </select>
 </mapper>
 

@@ -25,18 +25,6 @@ public class UserController {
     private UserService userService;
 
     /**
-     * 分页查询
-     *
-     * @param user 筛选条件
-     * @param pageRequest      分页对象
-     * @return 查询结果
-     */
-    /*@GetMapping
-    public ResponseEntity<Page<User>> queryByPage(User user, PageRequest pageRequest) {
-        return ResponseEntity.ok(this.userService.queryByPage(user, pageRequest));
-    }*/
-
-    /**
      * 通过主键查询单条数据
      *
      * @param userId 主键
@@ -51,17 +39,11 @@ public class UserController {
     @PostMapping("/userLogin")
     public Result userLogin(@RequestBody User user) {
         User _user = this.userService.userLogin(user.getPhoneNumber(), user.getPassword());
-        Result result = new Result();
        if(_user != null){
-           result.setData(_user);
-           result.setMsg("登陆成功");
-           result.setCode(200);
+           return Result.success(200,"登陆成功",_user);
        }else{
-            result.setCode(402);
-            result.setMsg("登陆失败");
-            result.setData(null);
+           return Result.fail(402,"账号或密码错误",null);
        }
-        return result;
     }
 
     //查询数据库所有数据
@@ -83,26 +65,14 @@ public class UserController {
      * @param user 实体
      * @return 新增结果
      */
-  /*  @PostMapping
-    public ResponseEntity<User> add(User user) {
-        return ResponseEntity.ok(this.userService.insert(user));
-    }
-*/
     @PostMapping("/userRegister")
     public Result userRegister(@RequestBody User user){
-        Result result = new Result();
-        User _user =  this.userService.insert(user);
-        if(_user != null){
-            result.setMsg("注册成功");
-            result.setData(null);
-            result.setCode(200);
-        }else{
-            System.out.println("注册用户失败！");
-            result.setData(null);
-            result.setCode(402);
-            result.setMsg("注册失败");
+        try{
+            User _user =  this.userService.insert(user);
+            return Result.success(200,"注册成功",_user);
+        }catch (Exception e){
+            return Result.fail(402,"注册失败",null);
         }
-        return result;
     }
 
     /**
@@ -111,20 +81,30 @@ public class UserController {
      * @param user 实体
      * @return 编辑结果
      */
-    @PutMapping
-    public ResponseEntity<User> edit(User user) {
-        return ResponseEntity.ok(this.userService.update(user));
+    @PutMapping("/updateUser")
+    public Result updateUser(@RequestBody User user) {
+        User _user = this.userService.update(user);
+        if(_user != null){
+            return Result.success(200,"更新成功",_user);
+        }else{
+            return Result.fail(400,"更新失败",user);
+        }
     }
 
     /**
      * 删除数据
      *
-     * @param id 主键
+     * @param userId 主键
      * @return 删除是否成功
      */
-    @DeleteMapping
-    public ResponseEntity<Boolean> deleteById(Long id) {
-        return ResponseEntity.ok(this.userService.deleteById(id));
+    @DeleteMapping("/deleteUserById")
+    public Result deleteById(@RequestBody Long userId) {
+        boolean mark = this.userService.deleteById(userId);
+        if(mark){
+            return Result.success(200,"删除成功",null);
+        }else{
+            return Result.fail(400,"删除失败",null);
+        }
     }
 
 }

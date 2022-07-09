@@ -1,6 +1,7 @@
 package com.example.klein.controller;
 
 import com.example.klein.entity.Scenicarea;
+import com.example.klein.entity.User;
 import com.example.klein.service.ScenicareaService;
 import com.example.klein.utils.result.Result;
 import org.springframework.http.ResponseEntity;
@@ -82,10 +83,18 @@ public class ScenicareaController {
     }
 
     //通过名字模糊查询景区
-    @GetMapping("/dimQueryByName")
+    @PostMapping("/dimQueryByName")
     public Result dimQueryByName(@RequestBody String dimName){
-        List<Scenicarea> scenicareaList = this.scenicareaService.dimQueryByName("%"+dimName+"%");
-        return Result.success(scenicareaList);
+        Result result = new Result();
+        String dimNamein = "%%"+dimName+"%%";
+        //dimNamein=dimNamein.replace("\"","");
+        List<Scenicarea> scenicareaList = this.scenicareaService.dimQueryByName(dimNamein);
+        if(scenicareaList != null){
+            result.setData(scenicareaList);
+        }else{
+            result.setData(null);
+        }
+        return Result.success(result.getData());
     }
 
 }

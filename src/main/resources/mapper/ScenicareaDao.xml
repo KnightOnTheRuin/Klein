@@ -103,11 +103,12 @@
         delete from scenicarea where scenicAreaId = #{scenicareaid}
     </delete>
 
+    <!--模糊查询-->
     <select id="dimQueryByName" resultMap="BaseResultMap">
         select
-            *
-        from scenicarea
-        where scenicAreaName like '%#{dimName}}%'
+            scenicAreaId, scenicAreaName, phoneNumber
+        from klein.scenicarea
+        where scenicAreaName like #{dimName}
     </select>
 </mapper>
 

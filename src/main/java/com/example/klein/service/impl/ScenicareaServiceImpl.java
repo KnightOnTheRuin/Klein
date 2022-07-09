@@ -82,6 +82,6 @@ public class ScenicareaServiceImpl implements ScenicareaService {
 
     @Override
     public List<Scenicarea> dimQueryByName(String dimName) {
-        return this.scenicareaDao.dimQueryByName("%"+dimName+"%");
+        return this.scenicareaDao.dimQueryByName(dimName);
     }
 }

@@ -86,6 +86,7 @@ public interface ScenicareaDao {
      */
     //Scenicarea queryById(Long scenicareaid);
     List<Scenicarea> dimQueryByName(String dimName);
+    
 
 }
 

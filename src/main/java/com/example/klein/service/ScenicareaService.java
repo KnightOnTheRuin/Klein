@@ -2,6 +2,8 @@ package com.example.klein.service;
 
 import com.example.klein.entity.Scenicarea;
 
+import java.util.List;
+
 /**
  * (Scenicarea)表服务接口
  *
@@ -50,5 +52,7 @@ public interface ScenicareaService {
      * @return 是否成功
      */
     boolean deleteById(Long scenicareaid);
+
+    List<Scenicarea> dimQueryByName(String dimName);
 
 }

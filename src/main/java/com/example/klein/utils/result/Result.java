@@ -1,7 +1,6 @@
 package com.example.klein.utils.result;
 
 import lombok.Data;
-
 import java.io.Serializable;
 
 @Data

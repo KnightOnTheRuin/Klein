@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (Scenicarea)表服务实现类
@@ -77,5 +78,10 @@ public class ScenicareaServiceImpl implements ScenicareaService {
     @Override
     public boolean deleteById(Long scenicareaid) {
         return this.scenicareaDao.deleteById(scenicareaid) > 0;
+    }
+
+    @Override
+    public List<Scenicarea> dimQueryByName(String dimName) {
+        return this.scenicareaDao.dimQueryByName("%"+dimName+"%");
     }
 }

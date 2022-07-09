@@ -2,10 +2,13 @@ package com.example.klein.controller;
 
 import com.example.klein.entity.Scenicarea;
 import com.example.klein.service.ScenicareaService;
+import com.example.klein.utils.result.Result;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * (Scenicarea)表控制层
@@ -76,6 +79,13 @@ public class ScenicareaController {
     @DeleteMapping
     public ResponseEntity<Boolean> deleteById(Long id) {
         return ResponseEntity.ok(this.scenicareaService.deleteById(id));
+    }
+
+    //通过名字模糊查询景区
+    @GetMapping("/dimQueryByName")
+    public Result dimQueryByName(@RequestBody String dimName){
+        List<Scenicarea> scenicareaList = this.scenicareaService.dimQueryByName("%"+dimName+"%");
+        return Result.success(scenicareaList);
     }
 
 }

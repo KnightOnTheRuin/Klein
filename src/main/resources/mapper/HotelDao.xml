@@ -16,7 +16,7 @@
         select
           hotelId, hotelName, startLevel, phoneNumber, address
         from hotel
-        where hotelId = #{hotelid}
+        where hotelId = #{hotelId}
     </select>
 
     <!--查询指定行数据-->
@@ -25,17 +25,17 @@
           hotelId, hotelName, startLevel, phoneNumber, address
         from hotel
         <where>
-            <if test="hotelid != null">
-                and hotelId = #{hotelid}
+            <if test="hotelId != null">
+                and hotelId = #{hotelId}
             </if>
-            <if test="hotelname != null and hotelname != ''">
-                and hotelName = #{hotelname}
+            <if test="hotelName != null and hotelName != ''">
+                and hotelName = #{hotelName}
             </if>
-            <if test="startlevel != null">
-                and startLevel = #{startlevel}
+            <if test="startLevel != null">
+                and startLevel = #{startLevel}
             </if>
-            <if test="phonenumber != null and phonenumber != ''">
-                and phoneNumber = #{phonenumber}
+            <if test="phoneNumber != null and phoneNumber != ''">
+                and phoneNumber = #{phoneNumber}
             </if>
             <if test="address != null and address != ''">
                 and address = #{address}
@@ -74,12 +74,12 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="hotelid" useGeneratedKeys="true">
+    <insert id="insert" keyProperty="hotelId" useGeneratedKeys="true">
         insert into hotel(hotelName, startLevel, phoneNumber, address)
         values (#{hotelName}, #{startLevel}, #{phoneNumber}, #{address})
     </insert>
 
-    <insert id="insertBatch" keyProperty="hotelid" useGeneratedKeys="true">
+    <insert id="insertBatch" keyProperty="hotelId" useGeneratedKeys="true">
         insert into hotel(hotelName, startLevel, phoneNumber, address)
         values
         <foreach collection="entities" item="entity" separator=",">
@@ -87,7 +87,7 @@
         </foreach>
     </insert>
 
-    <insert id="insertOrUpdateBatch" keyProperty="hotelid" useGeneratedKeys="true">
+    <insert id="insertOrUpdateBatch" keyProperty="hotelId" useGeneratedKeys="true">
         insert into hotel(hotelName, startLevel, phoneNumber, address)
         values
         <foreach collection="entities" item="entity" separator=",">
@@ -122,7 +122,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from hotel where hotelId = #{hotelid}
+        delete from hotel where hotelId = #{hotelId}
     </delete>
     <!--通过星级查询酒店-->
     <select id="queryByStartLevel" resultMap="BaseResultMap">

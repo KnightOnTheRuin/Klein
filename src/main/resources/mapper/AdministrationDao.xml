@@ -14,7 +14,7 @@
         select
           administrationId, administratorId, hotelId
         from administration
-        where administrationId = #{administrationid}
+        where administrationId = #{administrationId}
     </select>
 
     <!--查询指定行数据-->
@@ -23,14 +23,14 @@
           administrationId, administratorId, hotelId
         from administration
         <where>
-            <if test="administrationid != null">
-                and administrationId = #{administrationid}
+            <if test="administrationId != null">
+                and administrationId = #{administrationId}
             </if>
-            <if test="administratorid != null">
-                and administratorId = #{administratorid}
+            <if test="administratorId != null">
+                and administratorId = #{administratorId}
             </if>
-            <if test="hotelid != null">
-                and hotelId = #{hotelid}
+            <if test="hotelId != null">
+                and hotelId = #{hotelId}
             </if>
         </where>
         limit #{pageable.offset}, #{pageable.pageSize}
@@ -60,12 +60,12 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="administrationid" useGeneratedKeys="true">
+    <insert id="insert" keyProperty="administrationId" useGeneratedKeys="true">
         insert into administration(administratorId, hotelId)
         values (#{administratorId}, #{hotelId})
     </insert>
 
-    <insert id="insertBatch" keyProperty="administrationid" useGeneratedKeys="true">
+    <insert id="insertBatch" keyProperty="administrationId" useGeneratedKeys="true">
         insert into administration(administratorId, hotelId)
         values
         <foreach collection="entities" item="entity" separator=",">
@@ -73,7 +73,7 @@
         </foreach>
     </insert>
 
-    <insert id="insertOrUpdateBatch" keyProperty="administrationid" useGeneratedKeys="true">
+    <insert id="insertOrUpdateBatch" keyProperty="administrationId" useGeneratedKeys="true">
         insert into administration(administratorId, hotelId)
         values
         <foreach collection="entities" item="entity" separator=",">
@@ -100,7 +100,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from administration where administrationId = #{administrationid}
+        delete from administration where administrationId = #{administrationId}
     </delete>
     <!--通过酒店Id查找其管理员-->
     <select id="queryAdministratorByHotelId" resultType="com.example.klein.entity.User">

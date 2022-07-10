@@ -16,7 +16,7 @@
         select
           roomId, roomEnvironment, roomType, isReserved, price
         from guestroom
-        where roomId = #{roomid}
+        where roomId = #{roomId}
     </select>
 
     <!--查询指定行数据-->
@@ -25,17 +25,17 @@
           roomId, roomEnvironment, roomType, isReserved, price
         from guestroom
         <where>
-            <if test="roomid != null">
-                and roomId = #{roomid}
+            <if test="roomId != null">
+                and roomId = #{roomId}
             </if>
-            <if test="roomenvironment != null and roomenvironment != ''">
-                and roomEnvironment = #{roomenvironment}
+            <if test="roomEnvironment != null and roomEnvironment != ''">
+                and roomEnvironment = #{roomEnvironment}
             </if>
-            <if test="roomtype != null and roomtype != ''">
-                and roomType = #{roomtype}
+            <if test="roomType != null and roomType != ''">
+                and roomType = #{roomType}
             </if>
-            <if test="isreserved != null">
-                and isReserved = #{isreserved}
+            <if test="isReserved != null">
+                and isReserved = #{isReserved}
             </if>
             <if test="price != null and price != ''">
                 and price = #{price}
@@ -55,17 +55,17 @@
         select count(1)
         from guestroom
         <where>
-            <if test="roomid != null">
-                and roomId = #{roomid}
+            <if test="roomId != null">
+                and roomId = #{roomId}
             </if>
-            <if test="roomenvironment != null and roomenvironment != ''">
-                and roomEnvironment = #{roomenvironment}
+            <if test="roomEnvironment != null and roomEnvironment != ''">
+                and roomEnvironment = #{roomEnvironment}
             </if>
-            <if test="roomtype != null and roomtype != ''">
-                and roomType = #{roomtype}
+            <if test="roomType != null and roomType != ''">
+                and roomType = #{roomType}
             </if>
-            <if test="isreserved != null">
-                and isReserved = #{isreserved}
+            <if test="isReserved != null">
+                and isReserved = #{isReserved}
             </if>
             <if test="price != null and price != ''">
                 and price = #{price}
@@ -74,24 +74,24 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="roomid" useGeneratedKeys="true">
+    <insert id="insert" keyProperty="roomId" useGeneratedKeys="true">
         insert into guestroom(roomEnvironment, roomType, isReserved, price)
-        values (#{roomenvironment}, #{roomtype}, #{isreserved}, #{price})
+        values (#{roomEnvironment}, #{roomType}, #{isReserved}, #{price})
     </insert>
 
-    <insert id="insertBatch" keyProperty="roomid" useGeneratedKeys="true">
+    <insert id="insertBatch" keyProperty="roomId" useGeneratedKeys="true">
         insert into guestroom(roomEnvironment, roomType, isReserved, price)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.roomenvironment}, #{entity.roomtype}, #{entity.isreserved}, #{entity.price})
+        (#{entity.roomEnvironment}, #{entity.roomType}, #{entity.isReserved}, #{entity.price})
         </foreach>
     </insert>
 
-    <insert id="insertOrUpdateBatch" keyProperty="roomid" useGeneratedKeys="true">
+    <insert id="insertOrUpdateBatch" keyProperty="roomId" useGeneratedKeys="true">
         insert into guestroom(roomEnvironment, roomType, isReserved, price)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.roomenvironment}, #{entity.roomtype}, #{entity.isreserved}, #{entity.price})
+            (#{entity.roomEnvironment}, #{entity.roomType}, #{entity.isReserved}, #{entity.price})
         </foreach>
         on duplicate key update
         roomEnvironment = values(roomEnvironment),
@@ -104,25 +104,25 @@
     <update id="update">
         update guestroom
         <set>
-            <if test="roomenvironment != null and roomenvironment != ''">
-                roomEnvironment = #{roomenvironment},
+            <if test="roomEnvironment != null and roomEnvironment != ''">
+                roomEnvironment = #{roomEnvironment},
             </if>
-            <if test="roomtype != null and roomtype != ''">
-                roomType = #{roomtype},
+            <if test="roomType != null and roomType != ''">
+                roomType = #{roomType},
             </if>
-            <if test="isreserved != null">
-                isReserved = #{isreserved},
+            <if test="isReserved != null">
+                isReserved = #{isReserved},
             </if>
             <if test="price != null and price != ''">
                 price = #{price},
             </if>
         </set>
-        where roomId = #{roomid}
+        where roomId = #{roomId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from guestroom where roomId = #{roomid}
+        delete from guestroom where roomId = #{roomId}
     </delete>
 
 </mapper>

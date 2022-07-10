@@ -16,7 +16,7 @@
         select
           orderId, roomId, visitorId, administratorId, result
         from roomorder
-        where orderId = #{orderid}
+        where orderId = #{orderId}
     </select>
 
     <!--查询指定行数据-->
@@ -25,17 +25,17 @@
           orderId, roomId, visitorId, administratorId, result
         from roomorder
         <where>
-            <if test="orderid != null">
-                and orderId = #{orderid}
+            <if test="orderId != null">
+                and orderId = #{orderId}
             </if>
-            <if test="roomid != null">
-                and roomId = #{roomid}
+            <if test="roomId != null">
+                and roomId = #{roomId}
             </if>
-            <if test="visitorid != null">
-                and visitorId = #{visitorid}
+            <if test="visitorId != null">
+                and visitorId = #{visitorId}
             </if>
-            <if test="administratorid != null">
-                and administratorId = #{administratorid}
+            <if test="administratorId != null">
+                and administratorId = #{administratorId}
             </if>
             <if test="result != null">
                 and result = #{result}
@@ -55,17 +55,17 @@
         select count(1)
         from roomorder
         <where>
-            <if test="orderid != null">
-                and orderId = #{orderid}
+            <if test="orderId != null">
+                and orderId = #{orderId}
             </if>
-            <if test="roomid != null">
-                and roomId = #{roomid}
+            <if test="roomId != null">
+                and roomId = #{roomId}
             </if>
-            <if test="visitorid != null">
-                and visitorId = #{visitorid}
+            <if test="visitorId != null">
+                and visitorId = #{visitorId}
             </if>
-            <if test="administratorid != null">
-                and administratorId = #{administratorid}
+            <if test="administratorId != null">
+                and administratorId = #{administratorId}
             </if>
             <if test="result != null">
                 and result = #{result}
@@ -74,24 +74,24 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="orderid" useGeneratedKeys="true">
+    <insert id="insert" keyProperty="orderId" useGeneratedKeys="true">
         insert into roomorder(roomId, visitorId, administratorId, result)
-        values (#{roomid}, #{visitorid}, #{administratorid}, #{result})
+        values (#{roomId}, #{visitorId}, #{administratorId}, #{result})
     </insert>
 
-    <insert id="insertBatch" keyProperty="orderid" useGeneratedKeys="true">
+    <insert id="insertBatch" keyProperty="orderId" useGeneratedKeys="true">
         insert into roomorder(roomId, visitorId, administratorId, result)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.roomid}, #{entity.visitorid}, #{entity.administratorid}, #{entity.result})
+        (#{entity.roomId}, #{entity.visitorId}, #{entity.administratorId}, #{entity.result})
         </foreach>
     </insert>
 
-    <insert id="insertOrUpdateBatch" keyProperty="orderid" useGeneratedKeys="true">
+    <insert id="insertOrUpdateBatch" keyProperty="orderId" useGeneratedKeys="true">
         insert into roomorder(roomId, visitorId, administratorId, result)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.roomid}, #{entity.visitorid}, #{entity.administratorid}, #{entity.result})
+            (#{entity.roomId}, #{entity.visitorId}, #{entity.administratorId}, #{entity.result})
         </foreach>
         on duplicate key update
         roomId = values(roomId),
@@ -104,25 +104,25 @@
     <update id="update">
         update roomorder
         <set>
-            <if test="roomid != null">
-                roomId = #{roomid},
+            <if test="roomId != null">
+                roomId = #{roomId},
             </if>
-            <if test="visitorid != null">
-                visitorId = #{visitorid},
+            <if test="visitorId != null">
+                visitorId = #{visitorId},
             </if>
-            <if test="administratorid != null">
-                administratorId = #{administratorid},
+            <if test="administratorId != null">
+                administratorId = #{administratorId},
             </if>
             <if test="result != null">
                 result = #{result},
             </if>
         </set>
-        where orderId = #{orderid}
+        where orderId = #{orderId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from roomorder where orderId = #{orderid}
+        delete from roomorder where orderId = #{orderId}
     </delete>
 
 </mapper>

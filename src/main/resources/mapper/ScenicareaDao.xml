@@ -14,7 +14,7 @@
         select
           scenicAreaId, scenicAreaName, phoneNumber
         from scenicarea
-        where scenicAreaId = #{scenicareaid}
+        where scenicAreaId = #{scenicAreaId}
     </select>
 
     <!--查询指定行数据-->
@@ -23,14 +23,14 @@
           scenicAreaId, scenicAreaName, phoneNumber
         from scenicarea
         <where>
-            <if test="scenicareaid != null">
-                and scenicAreaId = #{scenicareaid}
+            <if test="scenicAreaId != null">
+                and scenicAreaId = #{scenicAreaId}
             </if>
-            <if test="scenicareaname != null and scenicareaname != ''">
-                and scenicAreaName = #{scenicareaname}
+            <if test="scenicAreaName != null and scenicAreaName != ''">
+                and scenicAreaName = #{scenicAreaName}
             </if>
-            <if test="phonenumber != null and phonenumber != ''">
-                and phoneNumber = #{phonenumber}
+            <if test="phoneNumber != null and phoneNumber != ''">
+                and phoneNumber = #{phoneNumber}
             </if>
         </where>
         limit #{pageable.offset}, #{pageable.pageSize}
@@ -47,37 +47,37 @@
         select count(1)
         from scenicarea
         <where>
-            <if test="scenicareaid != null">
-                and scenicAreaId = #{scenicareaid}
+            <if test="scenicAreaId != null">
+                and scenicAreaId = #{scenicAreaId}
             </if>
-            <if test="scenicareaname != null and scenicareaname != ''">
-                and scenicAreaName = #{scenicareaname}
+            <if test="scenicAreaName != null and scenicAreaName != ''">
+                and scenicAreaName = #{scenicAreaName}
             </if>
-            <if test="phonenumber != null and phonenumber != ''">
-                and phoneNumber = #{phonenumber}
+            <if test="phoneNumber != null and phoneNumber != ''">
+                and phoneNumber = #{phoneNumber}
             </if>
         </where>
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="scenicareaid" useGeneratedKeys="true">
+    <insert id="insert" keyProperty="scenicAreaId" useGeneratedKeys="true">
         insert into scenicarea(scenicAreaName, phoneNumber)
-        values (#{scenicareaname}, #{phonenumber})
+        values (#{scenicAreaName}, #{phoneNumber})
     </insert>
 
-    <insert id="insertBatch" keyProperty="scenicareaid" useGeneratedKeys="true">
+    <insert id="insertBatch" keyProperty="scenicAreaId" useGeneratedKeys="true">
         insert into scenicarea(scenicAreaName, phoneNumber)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.scenicareaname}, #{entity.phonenumber})
+        (#{entity.scenicAreaName}, #{entity.phoneNumber})
         </foreach>
     </insert>
 
-    <insert id="insertOrUpdateBatch" keyProperty="scenicareaid" useGeneratedKeys="true">
+    <insert id="insertOrUpdateBatch" keyProperty="scenicAreaId" useGeneratedKeys="true">
         insert into scenicarea(scenicAreaName, phoneNumber)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.scenicareaname}, #{entity.phonenumber})
+            (#{entity.scenicAreaName}, #{entity.phoneNumber})
         </foreach>
         on duplicate key update
         scenicAreaName = values(scenicAreaName),
@@ -88,19 +88,19 @@
     <update id="update">
         update scenicarea
         <set>
-            <if test="scenicareaname != null and scenicareaname != ''">
-                scenicAreaName = #{scenicareaname},
+            <if test="scenicAreaName != null and scenicAreaName != ''">
+                scenicAreaName = #{scenicAreaName},
             </if>
-            <if test="phonenumber != null and phonenumber != ''">
-                phoneNumber = #{phonenumber},
+            <if test="phoneNumber != null and phoneNumber != ''">
+                phoneNumber = #{phoneNumber},
             </if>
         </set>
-        where scenicAreaId = #{scenicareaid}
+        where scenicAreaId = #{scenicAreaId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from scenicarea where scenicAreaId = #{scenicareaid}
+        delete from scenicarea where scenicAreaId = #{scenicAreaId}
     </delete>
 
     <!--模糊查询-->

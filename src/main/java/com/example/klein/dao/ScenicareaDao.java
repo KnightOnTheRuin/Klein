@@ -84,7 +84,7 @@ public interface ScenicareaDao {
      * @param dimName 非主键
      * @return 实例对象
      */
-    //Scenicarea queryById(Long scenicareaid);
+
     List<Scenicarea> dimQueryByName(String dimName);
     
 

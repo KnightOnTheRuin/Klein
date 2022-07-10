@@ -17,7 +17,7 @@
         select
           performanceId, scenicAreaId, showTeamId, performanceName, performanceType, time
         from performance
-        where performanceId = #{performanceid}
+        where performanceId = #{performanceId}
     </select>
 
     <!--查询指定行数据-->
@@ -26,20 +26,20 @@
           performanceId, scenicAreaId, showTeamId, performanceName, performanceType, time
         from performance
         <where>
-            <if test="performanceid != null">
-                and performanceId = #{performanceid}
+            <if test="performanceId != null">
+                and performanceId = #{performanceId}
             </if>
-            <if test="scenicareaid != null">
-                and scenicAreaId = #{scenicareaid}
+            <if test="scenicAreaId != null">
+                and scenicAreaId = #{scenicAreaId}
             </if>
-            <if test="showteamid != null">
-                and showTeamId = #{showteamid}
+            <if test="showTeamId != null">
+                and showTeamId = #{showTeamId}
             </if>
-            <if test="performancename != null and performancename != ''">
-                and performanceName = #{performancename}
+            <if test="performanceName != null and performanceName != ''">
+                and performanceName = #{performanceName}
             </if>
-            <if test="performancetype != null and performancetype != ''">
-                and performanceType = #{performancetype}
+            <if test="performanceType != null and performanceType != ''">
+                and performanceType = #{performanceType}
             </if>
             <if test="time != null and time != ''">
                 and time = #{time}
@@ -59,20 +59,20 @@
         select count(1)
         from performance
         <where>
-            <if test="performanceid != null">
-                and performanceId = #{performanceid}
+            <if test="performanceId != null">
+                and performanceId = #{performanceId}
             </if>
-            <if test="scenicareaid != null">
-                and scenicAreaId = #{scenicareaid}
+            <if test="scenicAreaId != null">
+                and scenicAreaId = #{scenicAreaId}
             </if>
-            <if test="showteamid != null">
-                and showTeamId = #{showteamid}
+            <if test="showTeamId != null">
+                and showTeamId = #{showTeamId}
             </if>
-            <if test="performancename != null and performancename != ''">
-                and performanceName = #{performancename}
+            <if test="performanceName != null and performanceName != ''">
+                and performanceName = #{performanceName}
             </if>
-            <if test="performancetype != null and performancetype != ''">
-                and performanceType = #{performancetype}
+            <if test="performanceType != null and performanceType != ''">
+                and performanceType = #{performanceType}
             </if>
             <if test="time != null and time != ''">
                 and time = #{time}
@@ -81,24 +81,24 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="performanceid" useGeneratedKeys="true">
+    <insert id="insert" keyProperty="performanceId" useGeneratedKeys="true">
         insert into performance(scenicAreaId, showTeamId, performanceName, performanceType, time)
-        values (#{scenicareaid}, #{showteamid}, #{performancename}, #{performancetype}, #{time})
+        values (#{scenicAreaId}, #{showTeamId}, #{performanceName}, #{performanceType}, #{time})
     </insert>
 
-    <insert id="insertBatch" keyProperty="performanceid" useGeneratedKeys="true">
+    <insert id="insertBatch" keyProperty="performanceId" useGeneratedKeys="true">
         insert into performance(scenicAreaId, showTeamId, performanceName, performanceType, time)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.scenicareaid}, #{entity.showteamid}, #{entity.performancename}, #{entity.performancetype}, #{entity.time})
+        (#{entity.scenicAreaId}, #{entity.showTeamId}, #{entity.performanceName}, #{entity.performanceType}, #{entity.time})
         </foreach>
     </insert>
 
-    <insert id="insertOrUpdateBatch" keyProperty="performanceid" useGeneratedKeys="true">
+    <insert id="insertOrUpdateBatch" keyProperty="performanceId" useGeneratedKeys="true">
         insert into performance(scenicAreaId, showTeamId, performanceName, performanceType, time)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.scenicareaid}, #{entity.showteamid}, #{entity.performancename}, #{entity.performancetype}, #{entity.time})
+            (#{entity.scenicAreaId}, #{entity.showTeamId}, #{entity.performanceName}, #{entity.performanceType}, #{entity.time})
         </foreach>
         on duplicate key update
         scenicAreaId = values(scenicAreaId),
@@ -112,28 +112,28 @@
     <update id="update">
         update performance
         <set>
-            <if test="scenicareaid != null">
-                scenicAreaId = #{scenicareaid},
+            <if test="scenicAreaId != null">
+                scenicAreaId = #{scenicAreaId},
             </if>
-            <if test="showteamid != null">
-                showTeamId = #{showteamid},
+            <if test="showTeamId != null">
+                showTeamId = #{showTeamId},
             </if>
-            <if test="performancename != null and performancename != ''">
-                performanceName = #{performancename},
+            <if test="performanceName != null and performanceName != ''">
+                performanceName = #{performanceName},
             </if>
-            <if test="performancetype != null and performancetype != ''">
-                performanceType = #{performancetype},
+            <if test="performanceType != null and performanceType != ''">
+                performanceType = #{performanceType},
             </if>
             <if test="time != null and time != ''">
                 time = #{time},
             </if>
         </set>
-        where performanceId = #{performanceid}
+        where performanceId = #{performanceId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from performance where performanceId = #{performanceid}
+        delete from performance where performanceId = #{performanceId}
     </delete>
 
 </mapper>

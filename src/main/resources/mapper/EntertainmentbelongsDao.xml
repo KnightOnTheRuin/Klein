@@ -8,6 +8,8 @@
         <result property="scenicareaId" column="scenicAreaId" jdbcType="INTEGER"/>
         <result property="entertainmentid" column="entertainmentId" jdbcType="INTEGER"/>
     </resultMap>
+    
+    
 
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
@@ -48,11 +50,11 @@
         select count(1)
         from entertainmentbelongs
         <where>
-            <if test="belongsid != null">
-                and belongsId = #{belongsid}
+            <if test="belongsId != null">
+                and belongsId = #{belongsId}
             </if>
-            <if test="scenicareaid != null">
-                and scenicAreaId = #{scenicareaid}
+            <if test="scenicareaId != null">
+                and scenicAreaId = #{scenicareaId}
             </if>
             <if test="entertainmentid != null">
                 and entertainmentId = #{entertainmentid}
@@ -63,14 +65,14 @@
     <!--新增所有列-->
     <insert id="insert" keyProperty="belongsid" useGeneratedKeys="true">
         insert into entertainmentbelongs(scenicAreaId, entertainmentId)
-        values (#{scenicareaid}, #{entertainmentid})
+        values (#{scenicareaId}, #{entertainmentid})
     </insert>
 
     <insert id="insertBatch" keyProperty="belongsid" useGeneratedKeys="true">
         insert into entertainmentbelongs(scenicAreaId, entertainmentId)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.scenicareaid}, #{entity.entertainmentid})
+        (#{entity.scenicareaId}, #{entity.entertainmentid})
         </foreach>
     </insert>
 
@@ -78,7 +80,7 @@
         insert into entertainmentbelongs(scenicAreaId, entertainmentId)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.scenicareaid}, #{entity.entertainmentid})
+            (#{entity.scenicareaId}, #{entity.entertainmentid})
         </foreach>
         on duplicate key update
         scenicAreaId = values(scenicAreaId),
@@ -89,14 +91,14 @@
     <update id="update">
         update entertainmentbelongs
         <set>
-            <if test="scenicareaid != null">
-                scenicAreaId = #{scenicareaid},
+            <if test="scenicareaId != null">
+                scenicAreaId = #{scenicareaId},
             </if>
             <if test="entertainmentid != null">
                 entertainmentId = #{entertainmentid},
             </if>
         </set>
-        where belongsId = #{belongsid}
+        where belongsId = #{belongsId}
     </update>
 
     <!--通过主键删除-->

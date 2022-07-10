@@ -20,7 +20,7 @@ public interface UserDao {
      */
     User queryById(Long userid);
 
-    User userLogin(String phoneNumber, String password);
+
 
     List<User> queryAll();
 
@@ -81,6 +81,22 @@ public interface UserDao {
      * @return 影响行数
      */
     int deleteById(Long userid);
+    /**
+     * 通过电话和密码验证登录
+     *
+     * @param phoneNumber 非主键
+     * @param password 非主键
+     * @return 影响行数
+     */
+    User userLogin(String phoneNumber, String password);
+
+    /**
+     * 通过电话查询用户
+     *
+     * @param phoneNumber 非主键
+     * @return 影响行数
+     */
+    User queryByPhoneNumber(String phoneNumber);
 
 }
 

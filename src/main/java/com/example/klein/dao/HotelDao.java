@@ -78,5 +78,31 @@ public interface HotelDao {
      */
     int deleteById(Long hotelid);
 
+    /**
+     * 通过酒店星级查询多条数据
+     *
+     * @param startLevel 非主键
+     * @return 实例对象
+     */
+    //Hotel queryById(Long hotelid);
+    List<Hotel> queryByStartLevel(int startLevel);
+
+    /**
+     * 查找非星级酒店
+     *
+     * @param startLevel 非主键
+     * @return 实例对象
+     */
+    //Hotel queryById(Long hotelid);
+    List<Hotel> queryNoStartLevel(int startLevel);
+
+    /**
+     * 查找星级酒店
+     *
+     * @param startLevel 非主键
+     * @return 实例对象
+     */
+    //Hotel queryById(Long hotelid);
+    List<Hotel> queryHaveStartLevel(int startLevel);
 }
 

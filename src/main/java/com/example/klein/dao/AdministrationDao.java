@@ -1,6 +1,7 @@
 package com.example.klein.dao;
 
 import com.example.klein.entity.Administration;
+import com.example.klein.entity.User;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -78,5 +79,13 @@ public interface AdministrationDao {
      */
     int deleteById(Long administrationid);
 
+    /**
+     * 通过酒店Id单条查询其管理员
+     *
+     * @param hotelId 非主键
+     * @return 实例对象
+     */
+    //Administration queryById(Long administrationid);
+    User queryAdministratorByHotelId(long hotelId);
 }
 

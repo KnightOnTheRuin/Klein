@@ -14,7 +14,7 @@
         select
           showTeamId, showTeamType, showTeamName
         from showteam
-        where showTeamId = #{showteamid}
+        where showTeamId = #{showTeamId}
     </select>
 
     <!--查询指定行数据-->
@@ -23,14 +23,14 @@
           showTeamId, showTeamType, showTeamName
         from showteam
         <where>
-            <if test="showteamid != null">
-                and showTeamId = #{showteamid}
+            <if test="showTeamId != null">
+                and showTeamId = #{showTeamId}
             </if>
-            <if test="showteamtype != null and showteamtype != ''">
-                and showTeamType = #{showteamtype}
+            <if test="showTeamType != null and showTeamType != ''">
+                and showTeamType = #{showTeamType}
             </if>
-            <if test="showteamname != null and showteamname != ''">
-                and showTeamName = #{showteamname}
+            <if test="showTeamName != null and showTeamName != ''">
+                and showTeamName = #{showTeamName}
             </if>
         </where>
         limit #{pageable.offset}, #{pageable.pageSize}
@@ -47,37 +47,37 @@
         select count(1)
         from showteam
         <where>
-            <if test="showteamid != null">
-                and showTeamId = #{showteamid}
+            <if test="showTeamId != null">
+                and showTeamId = #{showTeamId}
             </if>
-            <if test="showteamtype != null and showteamtype != ''">
-                and showTeamType = #{showteamtype}
+            <if test="showTeamType != null and showTeamType != ''">
+                and showTeamType = #{showTeamType}
             </if>
-            <if test="showteamname != null and showteamname != ''">
-                and showTeamName = #{showteamname}
+            <if test="showTeamName != null and showTeamName != ''">
+                and showTeamName = #{showTeamName}
             </if>
         </where>
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="showteamid" useGeneratedKeys="true">
+    <insert id="insert" keyProperty="showTeamId" useGeneratedKeys="true">
         insert into showteam(showTeamType, showTeamName)
-        values (#{showteamtype}, #{showteamname})
+        values (#{showTeamType}, #{showTeamName})
     </insert>
 
-    <insert id="insertBatch" keyProperty="showteamid" useGeneratedKeys="true">
+    <insert id="insertBatch" keyProperty="showTeamId" useGeneratedKeys="true">
         insert into showteam(showTeamType, showTeamName)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.showteamtype}, #{entity.showteamname})
+        (#{entity.showTeamType}, #{entity.showTeamName})
         </foreach>
     </insert>
 
-    <insert id="insertOrUpdateBatch" keyProperty="showteamid" useGeneratedKeys="true">
+    <insert id="insertOrUpdateBatch" keyProperty="showTeamId" useGeneratedKeys="true">
         insert into showteam(showTeamType, showTeamName)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.showteamtype}, #{entity.showteamname})
+            (#{entity.showTeamType}, #{entity.showTeamName})
         </foreach>
         on duplicate key update
         showTeamType = values(showTeamType),
@@ -88,19 +88,19 @@
     <update id="update">
         update showteam
         <set>
-            <if test="showteamtype != null and showteamtype != ''">
-                showTeamType = #{showteamtype},
+            <if test="showTeamType != null and showTeamType != ''">
+                showTeamType = #{showTeamType},
             </if>
-            <if test="showteamname != null and showteamname != ''">
-                showTeamName = #{showteamname},
+            <if test="showTeamName != null and showTeamName != ''">
+                showTeamName = #{showTeamName},
             </if>
         </set>
-        where showTeamId = #{showteamid}
+        where showTeamId = #{showTeamId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from showteam where showTeamId = #{showteamid}
+        delete from showteam where showTeamId = #{showTeamId}
     </delete>
 
 </mapper>

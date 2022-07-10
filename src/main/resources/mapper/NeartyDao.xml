@@ -81,7 +81,7 @@
         </foreach>
         on duplicate key update
         scenicAreaId = values(scenicAreaId),
-        hotelId = values(hotelId),
+        hotelId = values(hotelId)
     </insert>
 
     <!--通过主键修改数据-->

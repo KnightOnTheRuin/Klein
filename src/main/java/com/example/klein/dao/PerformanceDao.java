@@ -3,6 +3,7 @@ package com.example.klein.dao;
 import com.example.klein.entity.Performance;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Performance)表数据库访问层
@@ -77,6 +78,13 @@ public interface PerformanceDao {
      * @return 影响行数
      */
     int deleteById(Long performanceid);
+    /**
+     * 通过景区Id查找当前景区的节目表演
+     *
+     * @param performanceid 主键
+     * @return 实例对象
+     */
+
 
 }
 

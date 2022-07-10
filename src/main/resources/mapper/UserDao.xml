@@ -125,13 +125,19 @@
         delete from user where userId = #{userId}
     </delete>
 
-    <!--通过用户账号和密码登陆-->
+    <!--通过电话和密码登录-->
     <select id="userLogin" resultMap="BaseResultMap">
         select
             userId, name, phoneNumber, password, isAdmin
         from user
-        where phoneNumber = #{phoneNumber} and password = #{password}
+        where phoneNumber=#{param1,jdbcType=VARCHAR} and password=#{param2,jdbcType=VARCHAR}
     </select>
-
+    <!--通过电话查询用户-->
+    <select id="queryByPhoneNumber" resultMap="BaseResultMap">
+        select
+            userId, name, phoneNumber, password, isAdmin
+        from user
+        where phoneNumber=#{phoneNumber}
+    </select>
 </mapper>
 

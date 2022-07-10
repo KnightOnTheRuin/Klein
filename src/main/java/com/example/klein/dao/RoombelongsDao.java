@@ -1,6 +1,9 @@
 package com.example.klein.dao;
 
+import com.example.klein.entity.Guestroom;
+import com.example.klein.entity.Hotel;
 import com.example.klein.entity.Roombelongs;
+import com.example.klein.entity.User;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -77,6 +80,31 @@ public interface RoombelongsDao {
      * @return 影响行数
      */
     int deleteById(Long belongsid);
+
+    /**
+     * 通过酒店Id查找酒店所拥有的房间
+     *
+     * @param hotelId 非主键
+     * @return 实例对象
+     */
+    //Roombelongs queryById(Long belongsid);
+    List<Guestroom> queryRoomByHotelId(long hotelId);
+
+    /**
+     * 通过房间Id查找其所属的酒店
+     *
+     * @param roomId 非主键
+     * @return 实例对象
+     */
+    Hotel queryHotelByRoomId(long roomId);
+
+    /**
+     * 通过房间Id查找其所属的酒店的管理员
+     *
+     * @param roomId 非主键
+     * @return 实例对象
+     */
+    User queryAdministrationByRoomId(long roomId);
 
 }
 

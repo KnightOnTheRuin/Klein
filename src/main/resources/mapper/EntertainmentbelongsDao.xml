@@ -6,7 +6,7 @@
         <!--@Table entertainmentbelongs-->
         <result property="belongsId" column="belongsId" jdbcType="INTEGER"/>
         <result property="scenicareaId" column="scenicAreaId" jdbcType="INTEGER"/>
-        <result property="entertainmentid" column="entertainmentId" jdbcType="INTEGER"/>
+        <result property="entertainmentId" column="entertainmentId" jdbcType="INTEGER"/>
     </resultMap>
     
     
@@ -39,7 +39,7 @@
     <!--新增所有列-->
     <insert id="insert" keyProperty="belongsId" useGeneratedKeys="true">
         insert into entertainmentbelongs(scenicAreaId, entertainmentId)
-        values (#{scenicareaId}, #{entertainmentid})
+        values (#{scenicareaId}, #{entertainmentId})
     </insert>
 
     <insert id="insertBatch" keyProperty="belongsId" useGeneratedKeys="true">

@@ -1,7 +1,11 @@
 package com.example.klein.controller;
 
+import com.example.klein.entity.Administration;
+import com.example.klein.entity.Entertainment;
 import com.example.klein.entity.Entertainmentbelongs;
+import com.example.klein.entity.Hotel;
 import com.example.klein.service.EntertainmentbelongsService;
+import com.example.klein.utils.result.Result;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,9 +44,13 @@ public class EntertainmentbelongsController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("{id}")
+    /*@GetMapping("{id}")
     public ResponseEntity<Entertainmentbelongs> queryById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(this.entertainmentbelongsService.queryById(id));
+    }*/
+    @GetMapping("/queryById")
+    public Result queryById(@RequestBody long EntertainmentbelongsID){
+        return Result.success(this.entertainmentbelongsService.queryById(EntertainmentbelongsID));
     }
 
     /**
@@ -51,9 +59,14 @@ public class EntertainmentbelongsController {
      * @param entertainmentbelongs 实体
      * @return 新增结果
      */
-    @PostMapping
-    public ResponseEntity<Entertainmentbelongs> add(Entertainmentbelongs entertainmentbelongs) {
-        return ResponseEntity.ok(this.entertainmentbelongsService.insert(entertainmentbelongs));
+    @PostMapping("/EntertainmentbelongsAdd")
+    public Result EntertainmentbelongsAdd(@RequestBody Entertainmentbelongs entertainmentbelongs) {
+        Entertainmentbelongs _entertainmentbelongs = this.entertainmentbelongsService.insert(entertainmentbelongs);
+        try {
+            return Result.success(200, "添加成功", _entertainmentbelongs);
+        } catch (Exception e) {
+            return Result.fail(402, "添加失败", _entertainmentbelongs.getBelongsId());
+        }
     }
 
     /**
@@ -62,9 +75,9 @@ public class EntertainmentbelongsController {
      * @param entertainmentbelongs 实体
      * @return 编辑结果
      */
-    @PutMapping
-    public ResponseEntity<Entertainmentbelongs> edit(Entertainmentbelongs entertainmentbelongs) {
-        return ResponseEntity.ok(this.entertainmentbelongsService.update(entertainmentbelongs));
+    @PutMapping("/updateEntertainmentbelongs")
+    public Result updateEntertainmentbelongs(@RequestBody Entertainmentbelongs entertainmentbelongs) {
+        return Result.fail(400,"此表不能更新",null);
     }
 
     /**

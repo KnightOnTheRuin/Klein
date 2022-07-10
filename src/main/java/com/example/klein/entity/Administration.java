@@ -22,24 +22,28 @@ public class Administration implements Serializable {
         return administrationId;
     }
 
-    public void setAdministrationId(Long administrationId) {
-        this.administrationId = administrationId;
-    }
-
-    public Long getAdministratorId() {
-        return administratorId;
-    }
-
-    public void setAdministratorId(Long administratorId) {
-        this.administratorId = administratorId;
-    }
-
     public Long getHotelId() {
         return hotelId;
     }
 
-    public void setHotelId(Long hotelId) {
-        this.hotelId = hotelId;
+    public void setAdministrationId(Long administrationid) {
+        this.administrationId = administrationid;
+    }
+
+    public Long getAdministratorId() {return administratorId;}
+
+    //public Long getAdministratorid() {return administratorId;}
+
+    public void setAdministratorId(Long administratorid) {
+        this.administratorId = administratorid;
+    }
+
+    /*//public Long getHotelid() {
+        return hotelId;
+    }*/
+
+    public void setHotelId(Long hotelid) {
+        this.hotelId = hotelid;
     }
 
 }

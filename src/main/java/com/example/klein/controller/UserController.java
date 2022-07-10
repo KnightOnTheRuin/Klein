@@ -1,5 +1,6 @@
 package com.example.klein.controller;
 
+import com.example.klein.entity.Administration;
 import com.example.klein.entity.User;
 import com.example.klein.service.UserService;
 import com.example.klein.utils.result.Result;
@@ -34,6 +35,7 @@ public class UserController {
     public Result queryById(@RequestBody long userId){
         return Result.success(this.userService.queryById(userId));
     }
+
 
     //普通用户登录
     @PostMapping("/userLogin")
@@ -83,11 +85,12 @@ public class UserController {
      */
     @PutMapping("/updateUser")
     public Result updateUser(@RequestBody User user) {
+        User newuser = this.userService.queryById(user.getUserid());
         User _user = this.userService.update(user);
-        if(_user != null){
+        if(newuser != null){
             return Result.success(200,"更新成功",_user);
         }else{
-            return Result.fail(400,"更新失败",user);
+            return Result.fail(400,"更新失败",newuser);
         }
     }
 

@@ -2,7 +2,6 @@ package com.example.klein.controller;
 
 import com.example.klein.entity.Hotel;
 import com.example.klein.service.HotelService;
-import com.example.klein.service.HotelService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

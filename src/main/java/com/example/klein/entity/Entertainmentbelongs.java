@@ -15,7 +15,7 @@ public class Entertainmentbelongs implements Serializable {
     
     private Long scenicareaId;
     
-    private Long entertainmentid;
+    private Long entertainmentId;
 
 
     public Long getBelongsId() {
@@ -34,12 +34,12 @@ public class Entertainmentbelongs implements Serializable {
         this.scenicareaId = scenicareaId;
     }
 
-    public Long getEntertainmentid() {
-        return entertainmentid;
+    public Long getEntertainmentId() {
+        return entertainmentId;
     }
 
-    public void setEntertainmentid(Long entertainmentid) {
-        this.entertainmentid = entertainmentid;
+    public void setEntertainmentId(Long entertainmentId) {
+        this.entertainmentId = entertainmentId;
     }
 
 }
